@@ -1,2 +1,2 @@
-var xelib = require('bindings')('xelib');
+const xelib = require('bindings')('xelib');
 module.exports = xelib;

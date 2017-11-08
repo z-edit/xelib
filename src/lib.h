@@ -12,22 +12,21 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 30; // 139
-typedef int (__cdecl* func_ptr_t)();
+const int NUM_FUNCTIONS = 12; // 139
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
     "InitXEdit", "CloseXEdit", "GetResultString", "GetResultArray", "GetGlobal", "GetGlobals",
-    "SetSortMode", "Release", "ReleaseNodes", "Switch", "GetDuplicateHandles", "ResetStore",
+    "SetSortMode", "Release", "ReleaseNodes", "Switch", "GetDuplicateHandles", "ResetStore"/*,
     // MESSAGE METHODS
     "GetMessagesLength", "GetMessages", "ClearMessages", "GetExceptionMessageLength",
     "GetExceptionMessage",
     // LOADING AND SET UP METHODS
     "GetGamePath", "SetGamePath", "SetLanguage", "SetBackupPath", "SetGameMode", "GetLoadOrder",
     "GetActivePlugins", "LoadPlugins", "LoadPlugin", "LoadPluginHeader", "BuildReferences",
-    "GetLoaderStatus", "UnloadPlugin"//,
+    "GetLoaderStatus", "UnloadPlugin",
     // FILE HANDLING METHODS
-    /*"AddFile", "FileByIndex", "FileByLoadOrder", "FileByName", "FileByAuthor", "NukeFile",
+    "AddFile", "FileByIndex", "FileByLoadOrder", "FileByName", "FileByAuthor", "NukeFile",
     "RenameFile", "SaveFile", "GetRecordCount", "GetOverrideRecordCount", "MD5Hash", "CRCHash",
     "SortEditorIDs", "SortNames", "GetFileLoadOrder",
     // MASTER HANDLING METHODS
@@ -73,7 +72,7 @@ typedef struct {
     WordBool  (__cdecl* GetDuplicateHandles)(Cardinal, PInteger);
     WordBool  (__cdecl* ResetStore)();
     // MESSAGE METHODS
-    void  (__cdecl* GetMessagesLength)(PInteger);
+    /*void  (__cdecl* GetMessagesLength)(PInteger);
     WordBool  (__cdecl* GetMessages)(PWChar, Integer);
     void  (__cdecl* ClearMessages)();
     void  (__cdecl* GetExceptionMessageLength)(PInteger);
@@ -89,13 +88,17 @@ typedef struct {
     WordBool  (__cdecl* LoadPlugin)(PWChar);
     WordBool  (__cdecl* LoadPluginHeader)(PWChar, PCardinal);
     WordBool  (__cdecl* UnloadPlugin)(Cardinal);
-    WordBool  (__cdecl* GetLoaderStatus)(PByte);
+    WordBool  (__cdecl* GetLoaderStatus)(PByte);*/
 } functions_struct;
 
 typedef union
 {
   functions_struct  functions;
-  func_ptr_t        function_pointers [NUM_FUNCTIONS];
+  FARPROC           function_pointers [NUM_FUNCTIONS];
 } functions_union;
 
+static HINSTANCE XEditLib;
 static functions_union xelib;
+
+int load(std::string dllPath);
+void log(std::string message);

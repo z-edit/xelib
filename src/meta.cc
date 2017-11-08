@@ -1,11 +1,19 @@
 #include <nan.h>
+#include <iostream>
 #include "lib.h"
 
 using namespace Nan;
 using namespace v8;
 
 NAN_METHOD(InitXEdit) {
-    xelib.functions.InitXEdit();
+    std::string libPath(*Nan::Utf8String(info[0]->ToString()));
+    if (load(libPath) != EXIT_FAILURE) {
+        try {
+            xelib.functions.InitXEdit();
+        } catch (...) {
+            log("Unknown exception");
+        }
+    }
 }
 
 NAN_METHOD(CloseXEdit) {
