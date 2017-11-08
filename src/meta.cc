@@ -2,16 +2,8 @@
 #include "meta.h"
 #include "lib.h"
 
-void grs(void* info, unsigned int len) {
-    if (len == 0) {
-        info.GetReturnValue().Set(Nan::New(L"").ToLocalChecked());
-        return;
-    }
-    std::wstring result;
-    result.resize(len);
-    xelib.functions.GetResultString(&result, len);
-    info.GetReturnValue().Set(Nan::New(result).ToLocalChecked());
-}
+using namespace Nan;
+using namespace v8;
 
 NAN_METHOD(InitXEdit) {
     xelib.functions.InitXEdit();
@@ -22,25 +14,37 @@ NAN_METHOD(CloseXEdit) {
 }
 
 NAN_METHOD(GetGlobal) {
-    PWChar key(info[0]->ToString());
-    Cardinal len = 0;
-    xelib.functions.GetGlobal(key, &len);
-    grs(info, len);
+    PWChar key = (PWChar) node::Buffer::Data(info[0]->ToObject());
+    PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());
+    WordBool success = xelib.functions.GetGlobal(key, len);
+    info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(GetGlobals) {
-    Cardinal len = 0;
-    xelib.functions.GetGlobals(&len);
-    grs(info, len);
+    PInteger len = (PInteger) node::Buffer::Data(info[0]->ToObject());
+    WordBool success = xelib.functions.GetGlobals(len);
+    info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(SetSortMode) {
-    char mode = info[0]->Uint32Value();
-    info.GetReturnValue().Set(xelib.functions.SetSortMode(mode));
+    Byte mode = (Byte) info[0]->Uint32Value();
+    WordBool reverse = (WordBool) info[1]->Uint32Value();
+    WordBool success = xelib.functions.SetSortMode(mode, reverse);
+    info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(Release) {
     Cardinal handle = info[0]->Uint32Value();
-    xelib.functions.Release(handle);
+    WordBool success = xelib.functions.Release(handle);
+    info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
+NAN_METHOD(GetResultString) {
+    PWChar result = (PWChar) node::Buffer::Data(info[0]->ToObject());
+    int len(info[1]->Int32Value());
+    WordBool success = true;
+    if (len > 0) {
+        success = xelib.functions.GetResultString(result, len);
+    }
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}

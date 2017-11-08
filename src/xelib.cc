@@ -18,8 +18,6 @@ NAN_MODULE_INIT(InitAll) {
     Nan::GetFunction(Nan::New<FunctionTemplate>(SetSortMode)).ToLocalChecked());
   Nan::Set(target, Nan::New("Release").ToLocalChecked(),
     Nan::GetFunction(Nan::New<FunctionTemplate>(Release)).ToLocalChecked());
-  Nan::Set(target, Nan::New("callback").ToLocalChecked(),
-    Nan::GetFunction(Nan::New<FunctionTemplate>(callback)).ToLocalChecked());
 }
 
 NODE_MODULE(xelib, InitAll)

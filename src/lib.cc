@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <iostream>
+#include <string>
 #include "lib.h"
 
 std::string getProgramPath() {
@@ -28,11 +29,11 @@ int main() {
             return EXIT_FAILURE;
         }
 
-        for (int i = 0; i< NUM_FUNCTIONS; i++) {
-            func_ptr[i] = GetProcAddress(hinst_mydll, FUNCTION_NAMES[i]);
+        for (int i = 0; i < NUM_FUNCTIONS; i++) {
+            function_pointers[i] = (func_ptr_t) GetProcAddress(hGetProcIDDLL, FUNCTION_NAMES[i]);
 
-            if (func_ptr[i] == NULL) {
-                log("Failed to to bind XEditLib.dll:" + FUNCTION_NAMES[i]);
+            if (function_pointers[i] == NULL) {
+                log("Failed to to bind XEditLib.dll:" + std::string(FUNCTION_NAMES[i]));
                 return EXIT_FAILURE;
             }
         }

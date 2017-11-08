@@ -2,7 +2,6 @@
 #define XELIB_META_H
 
 #include <nan.h>
-#include <lib.h>
 
 // NAN METHODS
 NAN_METHOD(InitXEdit);

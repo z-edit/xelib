@@ -10,7 +10,7 @@ typedef unsigned char Byte;
 typedef Byte* PByte;
 typedef signed long Integer;
 typedef Integer* PInteger;
-typedef wchar_t* PWChar;
+typedef std::wstring* PWChar;
 
 // function declaration
 const int NUM_FUNCTIONS = 30; // 139
@@ -27,7 +27,7 @@ const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // LOADING AND SET UP METHODS
     "GetGamePath", "SetGamePath", "SetLanguage", "SetBackupPath", "SetGameMode", "GetLoadOrder",
     "GetActivePlugins", "LoadPlugins", "LoadPlugin", "LoadPluginHeader", "BuildReferences",
-    "GetLoaderStatus", "UnloadPlugin",
+    "GetLoaderStatus", "UnloadPlugin"//,
     // FILE HANDLING METHODS
     /*"AddFile", "FileByIndex", "FileByLoadOrder", "FileByName", "FileByAuthor", "NukeFile",
     "RenameFile", "SaveFile", "GetRecordCount", "GetOverrideRecordCount", "MD5Hash", "CRCHash",
@@ -97,7 +97,9 @@ typedef struct {
 typedef union
 {
   functions_struct  functions;
-  func_ptr_t        function_pointers [NUM_FUNCTIONS];
-} xelib;
+  func_ptr_t        func_ptr [NUM_FUNCTIONS];
+} functions_union;
+
+functions_union xelib;
 
 #endif
