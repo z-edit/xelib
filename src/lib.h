@@ -1,5 +1,4 @@
-#ifndef XELIB_LIB_H
-#define XELIB_LIB_H
+#include <string>
 
 // DELPHI TYPES
 typedef unsigned short WordBool;
@@ -15,9 +14,8 @@ typedef std::wstring* PWChar;
 // function declaration
 const int NUM_FUNCTIONS = 30; // 139
 typedef int (__cdecl* func_ptr_t)();
-func_ptr_t function_pointers [NUM_FUNCTIONS];
 
-const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
+static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
     "InitXEdit", "CloseXEdit", "GetResultString", "GetResultArray", "GetGlobal", "GetGlobals",
     "SetSortMode", "Release", "ReleaseNodes", "Switch", "GetDuplicateHandles", "ResetStore",
@@ -97,9 +95,7 @@ typedef struct {
 typedef union
 {
   functions_struct  functions;
-  func_ptr_t        func_ptr [NUM_FUNCTIONS];
+  func_ptr_t        function_pointers [NUM_FUNCTIONS];
 } functions_union;
 
-functions_union xelib;
-
-#endif
+static functions_union xelib;

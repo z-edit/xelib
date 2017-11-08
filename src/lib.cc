@@ -30,9 +30,9 @@ int main() {
         }
 
         for (int i = 0; i < NUM_FUNCTIONS; i++) {
-            function_pointers[i] = (func_ptr_t) GetProcAddress(hGetProcIDDLL, FUNCTION_NAMES[i]);
+            xelib.function_pointers[i] = (func_ptr_t) GetProcAddress(hGetProcIDDLL, FUNCTION_NAMES[i]);
 
-            if (function_pointers[i] == NULL) {
+            if (xelib.function_pointers[i] == NULL) {
                 log("Failed to to bind XEditLib.dll:" + std::string(FUNCTION_NAMES[i]));
                 return EXIT_FAILURE;
             }

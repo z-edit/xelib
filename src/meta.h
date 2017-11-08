@@ -1,6 +1,4 @@
-#ifndef XELIB_META_H
-#define XELIB_META_H
-
+#pragma once
 #include <nan.h>
 
 // NAN METHODS
@@ -14,5 +12,3 @@ NAN_METHOD(Release);
 //NAN_METHOD(Switch);
 //NAN_METHOD(GetDuplicateHandles);
 //NAN_METHOD(ResetStore);
-
-#endif

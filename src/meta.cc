@@ -1,5 +1,4 @@
 #include <nan.h>
-#include "meta.h"
 #include "lib.h"
 
 using namespace Nan;
