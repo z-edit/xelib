@@ -17,20 +17,26 @@ void log(std::string message) {
 
 int main() {
     std::string program_path = getProgramPath();
-    std::string dir = extractDirectory(program_path);
-    HINSTANCE hGetProcIDDLL = LoadLibrary(dir + "XEditLib.dll");
-    
-    if (!hGetProcIDDLL) {
-        log("Failed to to load " + dir + "XEditLib.dll")
-        return EXIT_FAILURE;
-    }
+    std::string dllPath = extractDirectory(program_path) + "XEditLib.dll";
+    LPSTR libPath = strdup(dllPath.c_str());
 
-    for (int i = 0; i< NUM_FUNCTIONS; i++) {
-        func_ptr[i] = GetProcAddress(hinst_mydll, FUNCTION_NAMES[i]);
-    
-        if (func_ptr[i] == NULL) {
-            log("Failed to to bind XEditLib.dll:" + FUNCTION_NAMES[i]);
+    try {
+        HINSTANCE hGetProcIDDLL = LoadLibrary(libPath);
+
+        if (!hGetProcIDDLL) {
+            log("Failed to to load " + dllPath);
             return EXIT_FAILURE;
         }
+
+        for (int i = 0; i< NUM_FUNCTIONS; i++) {
+            func_ptr[i] = GetProcAddress(hinst_mydll, FUNCTION_NAMES[i]);
+
+            if (func_ptr[i] == NULL) {
+                log("Failed to to bind XEditLib.dll:" + FUNCTION_NAMES[i]);
+                return EXIT_FAILURE;
+            }
+        }
+    } catch(...) {
+        free(libPath);
     }
 }
