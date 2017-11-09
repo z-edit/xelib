@@ -4,6 +4,9 @@
 #include <direct.h>
 #include "lib.h"
 
+functions_union xelib;
+HINSTANCE XEditLib;
+
 std::string getProgramPath() {
   char* cwd = _getcwd(0, 0);
   std::string working_dir(cwd);
@@ -32,7 +35,7 @@ int load(std::string dllPath) {
         }
 
         for (int i = 0; i < NUM_FUNCTIONS; i++) {
-            log("Loading " + std::string(FUNCTION_NAMES[i]));
+            printf("Loading [%d] %s\n", i, FUNCTION_NAMES[i]);
             xelib.function_pointers[i] = GetProcAddress(XEditLib, FUNCTION_NAMES[i]);
             printf("-> Address: %p\n", xelib.function_pointers[i]);
 
@@ -48,6 +51,6 @@ int load(std::string dllPath) {
     }
 }
 
-int unload() {
+void unload() {
     FreeLibrary(XEditLib);
 }

@@ -12,6 +12,12 @@ let GetString = function(callback) {
   return str.toString('utf16le');
 };
 
+let wcb = function(value) {
+    let buf = new Buffer((value.length + 1) * 2);
+    buf.write(value, 0, 'utf16le');
+    return buf;
+};
+
 describe('xelib', function() {
   it('should be able to initialize', function() {
     xelib.InitXEdit();
@@ -20,12 +26,16 @@ describe('xelib', function() {
   describe('meta functions', function() {
     describe('GetGlobal', function() {
       it('should get a global', function() {
-        let global = GetString(function(_len) {
-            if (!xelib.GetGlobal('ProgramVersion', _len))
-              throw new Error('GetGlobal filed');
+        let version = GetString(function(_len) {
+            if (!xelib.GetGlobal(wcb('Version'), _len))
+              throw new Error('GetGlobal fialed');
         });
-        assert.equal(global, '0.2.0.51');
+        assert.equal(version, '0.2.0.51');
       });
+    });
+
+    describe('GetGlobals', function() {
+
     });
   });
 

@@ -1,3 +1,4 @@
+#include <node.h>
 #include "meta.h"
 
 using v8::FunctionTemplate;
@@ -10,6 +11,8 @@ NAN_MODULE_INIT(InitAll) {
     Nan::GetFunction(Nan::New<FunctionTemplate>(InitXEdit)).ToLocalChecked());
   Nan::Set(target, Nan::New("CloseXEdit").ToLocalChecked(),
     Nan::GetFunction(Nan::New<FunctionTemplate>(CloseXEdit)).ToLocalChecked());
+  Nan::Set(target, Nan::New("GetResultString").ToLocalChecked(),
+    Nan::GetFunction(Nan::New<FunctionTemplate>(GetResultString)).ToLocalChecked());
   Nan::Set(target, Nan::New("GetGlobal").ToLocalChecked(),
     Nan::GetFunction(Nan::New<FunctionTemplate>(GetGlobal)).ToLocalChecked());
   Nan::Set(target, Nan::New("GetGlobals").ToLocalChecked(),

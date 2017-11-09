@@ -1,5 +1,6 @@
 #include <nan.h>
 #include <iostream>
+#include "meta.h"
 #include "lib.h"
 
 using namespace Nan;
@@ -9,6 +10,7 @@ NAN_METHOD(InitXEdit) {
     std::string libPath(*Nan::Utf8String(info[0]->ToString()));
     if (load(libPath) != EXIT_FAILURE) {
         try {
+            printf("InitXEdit Pointer: %p\n", xelib.function_pointers[0]);
             xelib.functions.InitXEdit();
         } catch (...) {
             log("Unknown exception");
@@ -18,6 +20,16 @@ NAN_METHOD(InitXEdit) {
 
 NAN_METHOD(CloseXEdit) {
     xelib.functions.CloseXEdit();
+}
+
+NAN_METHOD(GetResultString) {
+    PWChar result = (PWChar) node::Buffer::Data(info[0]->ToObject());
+    int len(info[1]->Int32Value());
+    WordBool success = true;
+    if (len > 0) {
+        success = xelib.functions.GetResultString(result, len);
+    }
+    info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(GetGlobal) {
@@ -43,15 +55,5 @@ NAN_METHOD(SetSortMode) {
 NAN_METHOD(Release) {
     Cardinal handle = info[0]->Uint32Value();
     WordBool success = xelib.functions.Release(handle);
-    info.GetReturnValue().Set(Nan::New((bool) success));
-}
-
-NAN_METHOD(GetResultString) {
-    PWChar result = (PWChar) node::Buffer::Data(info[0]->ToObject());
-    int len(info[1]->Int32Value());
-    WordBool success = true;
-    if (len > 0) {
-        success = xelib.functions.GetResultString(result, len);
-    }
     info.GetReturnValue().Set(Nan::New((bool) success));
 }

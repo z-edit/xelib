@@ -1,3 +1,6 @@
+#ifndef __XELIB_LIB_H__
+#define __XELIB_LIB_H__
+
 #include <string>
 
 // DELPHI TYPES
@@ -57,7 +60,7 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "IsOverride", "IsWinningOverride", "GetNodes", "GetConflictData", "GetNodeElements"*/
 };
 
-typedef struct {
+struct functions_struct {
     // META METHODS
     void  (__cdecl* InitXEdit)();
     void  (__cdecl* CloseXEdit)();
@@ -89,16 +92,18 @@ typedef struct {
     WordBool  (__cdecl* LoadPluginHeader)(PWChar, PCardinal);
     WordBool  (__cdecl* UnloadPlugin)(Cardinal);
     WordBool  (__cdecl* GetLoaderStatus)(PByte);*/
-} functions_struct;
+};
 
-typedef union
+union functions_union
 {
   functions_struct  functions;
   FARPROC           function_pointers [NUM_FUNCTIONS];
-} functions_union;
+};
 
-static HINSTANCE XEditLib;
-static functions_union xelib;
+extern HINSTANCE XEditLib;
+extern functions_union xelib;
 
 int load(std::string dllPath);
 void log(std::string message);
+
+#endif
