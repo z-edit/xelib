@@ -7,23 +7,11 @@
 functions_union xelib;
 HINSTANCE XEditLib;
 
-std::string getProgramPath() {
-  char* cwd = _getcwd(0, 0);
-  std::string working_dir(cwd);
-  std::free(cwd);
-  return working_dir;
-}
-
-std::string extractDirectory(std::string path) {
-    return path.substr(0, path.find_last_of("\\"));
-}
-
 void log(std::string message) {
     std::cout << message << std::endl;
 }
 
 int load(std::string dllPath) {
-    log("Loading " + dllPath);
     LPSTR libPath = (LPSTR) strdup(dllPath.c_str());
 
     try {
