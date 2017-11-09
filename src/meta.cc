@@ -10,7 +10,6 @@ NAN_METHOD(InitXEdit) {
     std::string libPath(*Nan::Utf8String(info[0]->ToString()));
     if (load(libPath) != EXIT_FAILURE) {
         try {
-            printf("InitXEdit Pointer: %p\n", xelib.function_pointers[0]);
             xelib.functions.InitXEdit();
         } catch (...) {
             log("Unknown exception");

@@ -35,9 +35,7 @@ int load(std::string dllPath) {
         }
 
         for (int i = 0; i < NUM_FUNCTIONS; i++) {
-            printf("Loading [%d] %s\n", i, FUNCTION_NAMES[i]);
             xelib.function_pointers[i] = GetProcAddress(XEditLib, FUNCTION_NAMES[i]);
-            printf("-> Address: %p\n", xelib.function_pointers[i]);
 
             if (xelib.function_pointers[i] == NULL) {
                 log("Failed to to bind XEditLib.dll:" + std::string(FUNCTION_NAMES[i]));

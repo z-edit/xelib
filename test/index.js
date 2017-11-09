@@ -20,7 +20,8 @@ let wcb = function(value) {
 
 describe('xelib', function() {
   it('should be able to initialize', function() {
-    xelib.InitXEdit();
+    let libPath = __dirname + '\\..\\XEditLib.dll';
+    xelib.InitXEdit(libPath);
   });
 
   describe('meta functions', function() {
