@@ -61,8 +61,10 @@ NAN_METHOD(SetElement) {
 NAN_METHOD(GetElements) {
     Cardinal element = info[0]->Uint32Value();
     PWChar path = (PWChar) node::Buffer::Data(info[1]->ToObject());
-    PInteger len = (PInteger) node::Buffer::Data(info[2]->ToObject());
-    WordBool success = xelib.functions.GetElements(element, path, len);
+    WordBool sort = (WordBool) info[2]->BooleanValue();
+    WordBool filter = (WordBool) info[3]->BooleanValue();
+    PInteger len = (PInteger) node::Buffer::Data(info[4]->ToObject());
+    WordBool success = xelib.functions.GetElements(element, path, sort, filter, len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
