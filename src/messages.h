@@ -2,7 +2,6 @@
 #define XELIB_MESSAGES_H
 
 #include <nan.h>
-#include <lib.h>
 
 // NAN METHODS
 NAN_METHOD(GetMessagesLength);

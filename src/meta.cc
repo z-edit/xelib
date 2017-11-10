@@ -4,7 +4,6 @@
 #include "lib.h"
 
 using namespace Nan;
-using namespace v8;
 
 NAN_METHOD(InitXEdit) {
     std::string libPath(*Nan::Utf8String(info[0]->ToString()));
@@ -19,15 +18,23 @@ NAN_METHOD(InitXEdit) {
 
 NAN_METHOD(CloseXEdit) {
     xelib.functions.CloseXEdit();
+    FreeLibrary(XEditLib);
+    XEditLib = NULL;
 }
 
 NAN_METHOD(GetResultString) {
     PWChar result = (PWChar) node::Buffer::Data(info[0]->ToObject());
-    int len(info[1]->Int32Value());
+    Integer len = info[1]->Int32Value();
     WordBool success = true;
-    if (len > 0) {
-        success = xelib.functions.GetResultString(result, len);
-    }
+    if (len > 0) success = xelib.functions.GetResultString(result, len);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
+NAN_METHOD(GetResultArray) {
+    PCardinal result = (PCardinal) node::Buffer::Data(info[0]->ToObject());
+    Integer len = info[1]->Int32Value();
+    WordBool success = true;
+    if (len > 0) success = xelib.functions.GetResultArray(result, len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
@@ -54,5 +61,30 @@ NAN_METHOD(SetSortMode) {
 NAN_METHOD(Release) {
     Cardinal handle = info[0]->Uint32Value();
     WordBool success = xelib.functions.Release(handle);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
+NAN_METHOD(ReleaseNodes) {
+    Cardinal handle = info[0]->Uint32Value();
+    WordBool success = xelib.functions.ReleaseNodes(handle);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
+NAN_METHOD(Switch) {
+    Cardinal h1 = info[0]->Uint32Value();
+    Cardinal h2 = info[1]->Uint32Value();
+    WordBool success = xelib.functions.Switch(h1, h2);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
+NAN_METHOD(GetDuplicateHandles) {
+    Cardinal handle = info[0]->Uint32Value();
+    PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());
+    WordBool success = xelib.functions.GetDuplicateHandles(handle, len);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
+NAN_METHOD(ResetStore) {
+    WordBool success = xelib.functions.ResetStore();
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
