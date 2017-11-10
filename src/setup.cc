@@ -12,7 +12,7 @@ NAN_METHOD(SetGamePath) {
 
 NAN_METHOD(SetLanguage) {
     PWChar language = (PWChar) node::Buffer::Data(info[0]->ToObject());
-    WordBool success = xelib.functions.SetGamePath(language);
+    WordBool success = xelib.functions.SetLanguage(language);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
