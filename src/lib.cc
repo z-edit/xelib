@@ -36,7 +36,3 @@ int load(std::string dllPath) {
         return EXIT_FAILURE;
     }
 }
-
-void unload() {
-    FreeLibrary(XEditLib);
-}
