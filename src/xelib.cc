@@ -8,6 +8,7 @@
 #include "serialization.h"
 #include "elementValues.h"
 #include "records.h"
+#include "filter.h"
 
 using v8::FunctionTemplate;
 
