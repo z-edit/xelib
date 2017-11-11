@@ -16,7 +16,7 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 139;
+const int NUM_FUNCTIONS = 141;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
@@ -58,7 +58,9 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "GetFormID", "SetFormID", "GetRecord", "GetRecords", "GetOverrides", "GetReferencedBy",
     "GetMasterRecord", "GetPreviousOverride", "GetWinningOverride", "FindNextRecord",
     "FindPreviousRecord", "FindValidReferences", "ExchangeReferences", "IsMaster", "IsInjected",
-    "IsOverride", "IsWinningOverride", "GetNodes", "GetConflictData", "GetNodeElements"
+    "IsOverride", "IsWinningOverride", "GetNodes", "GetConflictData", "GetNodeElements",
+    // FILTERING METHODS
+    "FilterRecord", "ResetFilter"
 };
 
 struct functions_struct {
