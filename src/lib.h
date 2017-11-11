@@ -211,6 +211,9 @@ struct functions_struct {
     WordBool  (__cdecl* GetNodes)(Cardinal, PCardinal);
     WordBool  (__cdecl* GetConflictData)(Cardinal, Cardinal, PByte, PByte);
     WordBool  (__cdecl* GetNodeElements)(Cardinal, Cardinal, PInteger);
+    // FILTERING METHODS
+    WordBool  (__cdecl* FilterRecord)(Cardinal);
+    WordBool  (__cdecl* ResetFilter)();
 };
 
 union functions_union

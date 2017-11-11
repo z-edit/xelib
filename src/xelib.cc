@@ -173,6 +173,10 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, GetNodes);
     NAN_EXPORT(target, GetConflictData);
     NAN_EXPORT(target, GetNodeElements);
+
+    // RECORD HANDLING METHODS
+    NAN_EXPORT(target, FilterRecord);
+    NAN_EXPORT(target, ResetFilter);
 }
 
 NODE_MODULE(xelib, InitAll)
