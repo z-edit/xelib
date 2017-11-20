@@ -94,7 +94,7 @@ struct functions_struct {
     WordBool  (__cdecl* LoadPlugins)(PWChar, WordBool);
     WordBool  (__cdecl* LoadPlugin)(PWChar);
     WordBool  (__cdecl* LoadPluginHeader)(PWChar, PCardinal);
-    WordBool  (__cdecl* BuildReferences)(Cardinal);
+    WordBool  (__cdecl* BuildReferences)(Cardinal, WordBool);
     WordBool  (__cdecl* GetLoaderStatus)(PByte);
     WordBool  (__cdecl* UnloadPlugin)(Cardinal);
     // FILE HANDLING METHODS

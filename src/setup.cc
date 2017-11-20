@@ -69,7 +69,8 @@ NAN_METHOD(LoadPluginHeader) {
 
 NAN_METHOD(BuildReferences) {
     Cardinal handle = info[0]->Uint32Value();
-    WordBool success = xelib.functions.BuildReferences(handle);
+    WordBool sync = info[1]->BooleanValue();
+    WordBool success = xelib.functions.BuildReferences(handle, sync);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
