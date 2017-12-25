@@ -8,7 +8,7 @@ NAN_METHOD(ExtractContainer) {
     PWChar name = (PWChar) node::Buffer::Data(info[0]->ToObject());
     PWChar destination = (PWChar) node::Buffer::Data(info[1]->ToObject());
     WordBool replace = (WordBool) info[2]->BooleanValue();
-    WordBool success = xelib.functions.ExtractContainer(name, path, replace);
+    WordBool success = xelib.functions.ExtractContainer(name, destination, replace);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
