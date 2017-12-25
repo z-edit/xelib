@@ -1,6 +1,7 @@
 #include "meta.h"
 #include "messages.h"
 #include "setup.h"
+#include "archives.h"
 #include "files.h"
 #include "masters.h"
 #include "elements.h"
