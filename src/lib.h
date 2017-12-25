@@ -16,7 +16,7 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 141;
+const int NUM_FUNCTIONS = 146;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
@@ -29,6 +29,8 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "GetGamePath", "SetGamePath", "SetLanguage", "SetBackupPath", "SetGameMode", "GetLoadOrder",
     "GetActivePlugins", "LoadPlugins", "LoadPlugin", "LoadPluginHeader", "BuildReferences",
     "GetLoaderStatus", "UnloadPlugin",
+    // ARCHIVE HANDLING METHODS
+    "ExtractContainer", "ExtractFile", "GetContainerFiles", "GetLoadedContainers", "LoadContainer",
     // FILE HANDLING METHODS
     "AddFile", "FileByIndex", "FileByLoadOrder", "FileByName", "FileByAuthor", "NukeFile",
     "RenameFile", "SaveFile", "GetRecordCount", "GetOverrideRecordCount", "MD5Hash", "CRCHash",
@@ -97,6 +99,12 @@ struct functions_struct {
     WordBool  (__cdecl* BuildReferences)(Cardinal, WordBool);
     WordBool  (__cdecl* GetLoaderStatus)(PByte);
     WordBool  (__cdecl* UnloadPlugin)(Cardinal);
+    // ARCHIVE HANDLING METHODS
+    WordBool  (__cdecl* ExtractContainer)(PWChar, PWChar, WordBool);
+    WordBool  (__cdecl* ExtractFile)(PWChar, PWChar, PWChar);
+    WordBool  (__cdecl* GetContainerFiles)(PWChar, PInteger);
+    WordBool  (__cdecl* GetLoadedContainers)(PInteger);
+    WordBool  (__cdecl* LoadContainer)(PWChar);
     // FILE HANDLING METHODS
     WordBool  (__cdecl* AddFile)(PWChar, PCardinal);
     WordBool  (__cdecl* FileByIndex)(Integer, PCardinal);
