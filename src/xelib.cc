@@ -52,6 +52,13 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, GetLoaderStatus);
     NAN_EXPORT(target, UnloadPlugin);
 
+    // LOADING AND SET UP METHODS
+    NAN_EXPORT(target, ExtractContainer);
+    NAN_EXPORT(target, ExtractFile);
+    NAN_EXPORT(target, GetContainerFiles);
+    NAN_EXPORT(target, GetLoadedContainers);
+    NAN_EXPORT(target, LoadContainer);
+
     // FILE HANDLING METHODS
     NAN_EXPORT(target, AddFile);
     NAN_EXPORT(target, FileByIndex);
