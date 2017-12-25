@@ -1,5 +1,5 @@
-#ifndef XELIB_ELEMENTS_H
-#define XELIB_ELEMENTS_H
+#ifndef XELIB_ARCHIVES_H
+#define XELIB_ARCHIVES_H
 
 #include <nan.h>
 
