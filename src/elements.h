@@ -16,6 +16,7 @@ NAN_METHOD(GetDefNames);
 NAN_METHOD(GetAddList);
 NAN_METHOD(GetContainer);
 NAN_METHOD(GetElementRecord);
+NAN_METHOD(GetElementGroup);
 NAN_METHOD(GetElementFile);
 NAN_METHOD(GetLinksTo);
 NAN_METHOD(SetLinksTo);

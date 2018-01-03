@@ -16,7 +16,7 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 146;
+const int NUM_FUNCTIONS = 147;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
@@ -41,12 +41,12 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // ELEMENT HANDLING METHODS
     "HasElement", "GetElement", "AddElement", "AddElementValue", "RemoveElement",
     "RemoveElementOrParent", "SetElement", "GetElements", "GetDefNames", "GetAddList",
-    "GetContainer", "GetElementFile", "GetElementRecord", "GetLinksTo", "SetLinksTo",
-    "ElementCount", "ElementEquals", "ElementMatches", "HasArrayItem", "GetArrayItem",
-    "AddArrayItem", "RemoveArrayItem", "MoveArrayItem", "CopyElement", "FindNextElement",
-    "FindPreviousElement", "GetSignatureAllowed", "GetAllowedSignatures", "GetIsModified",
-    "GetIsEditable", "GetIsRemoveable", "GetCanAdd", "SortKey", "ElementType", "DefType",
-    "SmashType", "ValueType", "IsSorted",
+    "GetContainer", "GetElementFile", "GetElementGroup", "GetElementRecord", "GetLinksTo",
+    "SetLinksTo", "ElementCount", "ElementEquals", "ElementMatches", "HasArrayItem",
+    "GetArrayItem", "AddArrayItem", "RemoveArrayItem", "MoveArrayItem", "CopyElement",
+    "FindNextElement", "FindPreviousElement", "GetSignatureAllowed", "GetAllowedSignatures",
+    "GetIsModified", "GetIsEditable", "GetIsRemoveable", "GetCanAdd", "SortKey",
+    "ElementType", "DefType", "SmashType", "ValueType", "IsSorted",
     // PLUGIN ERROR METHODS
     "CheckForErrors", "GetErrorThreadDone", "GetErrors", "RemoveIdenticalRecords",
     // SERIALIZATION METHODS
@@ -143,6 +143,7 @@ struct functions_struct {
     WordBool  (__cdecl* GetAddList)(Cardinal, PInteger);
     WordBool  (__cdecl* GetContainer)(Cardinal, PCardinal);
     WordBool  (__cdecl* GetElementFile)(Cardinal, PCardinal);
+    WordBool  (__cdecl* GetElementGroup)(Cardinal, PCardinal);
     WordBool  (__cdecl* GetElementRecord)(Cardinal, PCardinal);
     WordBool  (__cdecl* GetLinksTo)(Cardinal, PWChar, PCardinal);
     WordBool  (__cdecl* SetLinksTo)(Cardinal, PWChar, Cardinal);

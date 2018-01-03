@@ -100,6 +100,7 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, GetAddList);
     NAN_EXPORT(target, GetContainer);
     NAN_EXPORT(target, GetElementFile);
+    NAN_EXPORT(target, GetElementGroup);
     NAN_EXPORT(target, GetElementRecord);
     NAN_EXPORT(target, GetLinksTo);
     NAN_EXPORT(target, SetLinksTo);

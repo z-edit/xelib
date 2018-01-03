@@ -96,6 +96,13 @@ NAN_METHOD(GetElementFile) {
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
+NAN_METHOD(GetElementGroup) {
+    Cardinal element = info[0]->Uint32Value();
+    PCardinal _res = (PCardinal) node::Buffer::Data(info[1]->ToObject());
+    WordBool success = xelib.functions.GetElementGroup(element, _res);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
 NAN_METHOD(GetElementRecord) {
     Cardinal element = info[0]->Uint32Value();
     PCardinal _res = (PCardinal) node::Buffer::Data(info[1]->ToObject());
