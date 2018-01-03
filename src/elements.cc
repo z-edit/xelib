@@ -46,8 +46,7 @@ NAN_METHOD(RemoveElement) {
 
 NAN_METHOD(RemoveElementOrParent) {
     Cardinal element = info[0]->Uint32Value();
-    PWChar path = (PWChar) node::Buffer::Data(info[1]->ToObject());
-    WordBool success = xelib.functions.RemoveElementOrParent(element, path);
+    WordBool success = xelib.functions.RemoveElementOrParent(element);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 

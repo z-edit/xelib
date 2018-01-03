@@ -136,7 +136,7 @@ struct functions_struct {
     WordBool  (__cdecl* AddElement)(Cardinal, PWChar, PCardinal);
     WordBool  (__cdecl* AddElementValue)(Cardinal, PWChar, PWChar, PCardinal);
     WordBool  (__cdecl* RemoveElement)(Cardinal, PWChar);
-    WordBool  (__cdecl* RemoveElementOrParent)(Cardinal, PWChar);
+    WordBool  (__cdecl* RemoveElementOrParent)(Cardinal);
     WordBool  (__cdecl* SetElement)(Cardinal, Cardinal);
     WordBool  (__cdecl* GetElements)(Cardinal, PWChar, WordBool, WordBool, PInteger);
     WordBool  (__cdecl* GetDefNames)(Cardinal, PInteger);
