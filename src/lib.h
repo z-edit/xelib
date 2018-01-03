@@ -45,7 +45,7 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "SetLinksTo", "ElementCount", "ElementEquals", "ElementMatches", "HasArrayItem",
     "GetArrayItem", "AddArrayItem", "RemoveArrayItem", "MoveArrayItem", "CopyElement",
     "FindNextElement", "FindPreviousElement", "GetSignatureAllowed", "GetAllowedSignatures",
-    "GetIsModified", "GetIsEditable", "GetIsRemoveable", "GetCanAdd", "SortKey",
+    "GetIsModified", "GetIsEditable", "SetIsEditable", "GetIsRemoveable", "GetCanAdd", "SortKey",
     "ElementType", "DefType", "SmashType", "ValueType", "IsSorted",
     // PLUGIN ERROR METHODS
     "CheckForErrors", "GetErrorThreadDone", "GetErrors", "RemoveIdenticalRecords",
@@ -162,6 +162,7 @@ struct functions_struct {
     WordBool  (__cdecl* GetAllowedSignatures)(Cardinal, PInteger);
     WordBool  (__cdecl* GetIsModified)(Cardinal, PWordBool);
     WordBool  (__cdecl* GetIsEditable)(Cardinal, PWordBool);
+    WordBool  (__cdecl* SetIsEditable)(Cardinal, WordBool);
     WordBool  (__cdecl* GetIsRemoveable)(Cardinal, PWordBool);
     WordBool  (__cdecl* GetCanAdd)(Cardinal, PWordBool);
     WordBool  (__cdecl* SortKey)(Cardinal, PInteger);

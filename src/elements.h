@@ -35,6 +35,7 @@ NAN_METHOD(GetSignatureAllowed);
 NAN_METHOD(GetAllowedSignatures);
 NAN_METHOD(GetIsModified);
 NAN_METHOD(GetIsEditable);
+NAN_METHOD(SetIsEditable);
 NAN_METHOD(GetIsRemoveable);
 NAN_METHOD(GetCanAdd);
 NAN_METHOD(SortKey);

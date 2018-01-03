@@ -119,6 +119,7 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, GetAllowedSignatures);
     NAN_EXPORT(target, GetIsModified);
     NAN_EXPORT(target, GetIsEditable);
+    NAN_EXPORT(target, SetIsEditable);
     NAN_EXPORT(target, GetIsRemoveable);
     NAN_EXPORT(target, GetCanAdd);
     NAN_EXPORT(target, SortKey);

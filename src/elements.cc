@@ -254,6 +254,13 @@ NAN_METHOD(GetIsEditable) {
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
+NAN_METHOD(SetIsEditable) {
+    Cardinal element = info[0]->Uint32Value();
+    WordBool value = info[1]->BooleanValue();
+    WordBool success = xelib.functions.SetIsEditable(element, value);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
 NAN_METHOD(GetIsRemoveable) {
     Cardinal element = info[0]->Uint32Value();
     PWordBool _res = (PWordBool) node::Buffer::Data(info[1]->ToObject());
