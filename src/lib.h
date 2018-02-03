@@ -16,7 +16,7 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 148;
+const int NUM_FUNCTIONS = 149;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
@@ -46,7 +46,7 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "GetArrayItem", "AddArrayItem", "RemoveArrayItem", "MoveArrayItem", "CopyElement",
     "FindNextElement", "FindPreviousElement", "GetSignatureAllowed", "GetAllowedSignatures",
     "GetIsModified", "GetIsEditable", "SetIsEditable", "GetIsRemoveable", "GetCanAdd", "SortKey",
-    "ElementType", "DefType", "SmashType", "ValueType", "IsSorted",
+    "ElementType", "DefType", "SmashType", "ValueType", "IsSorted", "IsFixed",
     // PLUGIN ERROR METHODS
     "CheckForErrors", "GetErrorThreadDone", "GetErrors", "RemoveIdenticalRecords",
     // SERIALIZATION METHODS
@@ -171,6 +171,7 @@ struct functions_struct {
     WordBool  (__cdecl* SmashType)(Cardinal, PByte);
     WordBool  (__cdecl* ValueType)(Cardinal, PByte);
     WordBool  (__cdecl* IsSorted)(Cardinal, PWordBool);
+    WordBool  (__cdecl* IsFixed)(Cardinal, PWordBool);
     // PLUGIN ERROR METHODS
     WordBool  (__cdecl* CheckForErrors)(Cardinal);
     WordBool  (__cdecl* GetErrorThreadDone)();

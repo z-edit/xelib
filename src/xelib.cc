@@ -128,6 +128,7 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, SmashType);
     NAN_EXPORT(target, ValueType);
     NAN_EXPORT(target, IsSorted);
+    NAN_EXPORT(target, IsFixed);
 
     // PLUGIN ERROR METHODS
     NAN_EXPORT(target, CheckForErrors);

@@ -315,3 +315,10 @@ NAN_METHOD(IsSorted) {
     WordBool success = xelib.functions.IsSorted(element, _res);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
+
+NAN_METHOD(IsFixed) {
+    Cardinal element = info[0]->Uint32Value();
+    PWordBool _res = (PWordBool) node::Buffer::Data(info[1]->ToObject());
+    WordBool success = xelib.functions.IsFixed(element, _res);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}

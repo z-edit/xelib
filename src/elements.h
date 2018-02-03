@@ -44,5 +44,6 @@ NAN_METHOD(DefType);
 NAN_METHOD(SmashType);
 NAN_METHOD(ValueType);
 NAN_METHOD(IsSorted);
+NAN_METHOD(IsFixed);
 
 #endif
