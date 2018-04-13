@@ -14,6 +14,7 @@ NAN_METHOD(Release);
 NAN_METHOD(ReleaseNodes);
 NAN_METHOD(Switch);
 NAN_METHOD(GetDuplicateHandles);
+NAN_METHOD(CleanStore);
 NAN_METHOD(ResetStore);
 
 #endif

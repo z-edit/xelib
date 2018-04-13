@@ -84,6 +84,11 @@ NAN_METHOD(GetDuplicateHandles) {
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
+NAN_METHOD(CleanStore) {
+    WordBool success = xelib.functions.CleanStore();
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
 NAN_METHOD(ResetStore) {
     WordBool success = xelib.functions.ResetStore();
     info.GetReturnValue().Set(Nan::New((bool) success));

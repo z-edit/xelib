@@ -16,12 +16,13 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 149;
+const int NUM_FUNCTIONS = 150;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
     "InitXEdit", "CloseXEdit", "GetResultString", "GetResultArray", "GetGlobal", "GetGlobals",
-    "SetSortMode", "Release", "ReleaseNodes", "Switch", "GetDuplicateHandles", "ResetStore",
+    "SetSortMode", "Release", "ReleaseNodes", "Switch", "GetDuplicateHandles", "CleanStore",
+    "ResetStore",
     // MESSAGE METHODS
     "GetMessagesLength", "GetMessages", "ClearMessages", "GetExceptionMessageLength",
     "GetExceptionMessage",
@@ -78,6 +79,7 @@ struct functions_struct {
     WordBool  (__cdecl* ReleaseNodes)(Cardinal);
     WordBool  (__cdecl* Switch)(Cardinal, Cardinal);
     WordBool  (__cdecl* GetDuplicateHandles)(Cardinal, PInteger);
+    WordBool  (__cdecl* CleanStore)();
     WordBool  (__cdecl* ResetStore)();
     // MESSAGE METHODS
     void  (__cdecl* GetMessagesLength)(PInteger);

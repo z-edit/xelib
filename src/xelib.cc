@@ -29,6 +29,7 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, ReleaseNodes);
     NAN_EXPORT(target, Switch);
     NAN_EXPORT(target, GetDuplicateHandles);
+    NAN_EXPORT(target, CleanStore);
     NAN_EXPORT(target, ResetStore);
 
     // MESSAGE METHODS
