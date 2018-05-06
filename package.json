@@ -1,7 +1,7 @@
 {
   "name": "xelib",
   "description": "Native addon which wraps around XEditLib.dll.  Provides an API for interfacing with Bethesda Plugin Files.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Mator",
   "copyright": "© 2017, Mator",
   "repository": "https://github.com/matortheeternal/zedit",
