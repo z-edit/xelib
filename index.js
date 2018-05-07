@@ -1,5 +1,25 @@
-const lib = require('bindings')('xelib');
 const xelib = {};
+
+let lock = function(fn) {
+    return function() {
+        let n = 0;
+        while (xelib.locked) n = n++ % 1000000;
+        xelib.locked = true;
+        let result = fn(...arguments);
+        xelib.locked = false;
+        return result;
+    };
+};
+
+let lockAll = function(obj) {
+    let lockedObj = {};
+    Object.keys(obj).forEach(key => {
+        lockedObj[key] = lock(obj[key]);
+    });
+    return lockedObj;
+};
+
+const lib = lockAll(require('bindings')('xelib'));
 const helpers = require('./lib/helpers')(lib, xelib);
 
 require('./lib/meta')(lib, xelib, helpers);
