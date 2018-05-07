@@ -5,9 +5,11 @@ let lock = function(fn) {
         let n = 0;
         while (xelib.locked) n = n++ % 1000000;
         xelib.locked = true;
-        let result = fn(...arguments);
-        xelib.locked = false;
-        return result;
+        try {
+            return fn(...arguments);
+        } finally {
+            xelib.locked = false;
+        }
     };
 };
 
