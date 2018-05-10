@@ -1,46 +1,26 @@
 const xelib = {};
 
-let lock = function(fn) {
-    return function() {
-        let n = 0;
-        while (xelib.locked) n = n++ % 1000000;
-        xelib.locked = true;
-        try {
-            return fn(...arguments);
-        } finally {
-            xelib.locked = false;
-        }
-    };
-};
+const types = require('src/types');
+const lib = require('src/lib')(xelib, types);
+const helpers = require('src/helpers')(lib, xelib, types);
 
-let lockAll = function(obj) {
-    let lockedObj = {};
-    Object.keys(obj).forEach(key => {
-        lockedObj[key] = lock(obj[key]);
-    });
-    return lockedObj;
-};
-
-const lib = lockAll(require('bindings')('xelib'));
-const helpers = require('./lib/helpers')(lib, xelib);
-
-require('./lib/meta')(lib, xelib, helpers);
-require('./lib/messages')(lib, xelib, helpers);
-require('./lib/setup')(lib, xelib, helpers);
-require('./lib/archives')(lib, xelib, helpers);
-require('./lib/files')(lib, xelib, helpers);
-require('./lib/masters')(lib, xelib, helpers);
-require('./lib/elements')(lib, xelib, helpers);
-require('./lib/errors')(lib, xelib, helpers);
-require('./lib/elementValues')(lib, xelib, helpers);
-require('./lib/serialization')(lib, xelib, helpers);
-require('./lib/records')(lib, xelib, helpers);
-require('./lib/groups')(lib, xelib, helpers);
-require('./lib/filter')(lib, xelib, helpers);
-require('./lib/fileValues')(lib, xelib, helpers);
-require('./lib/recordValues')(lib, xelib, helpers);
-require('./lib/common')(lib, xelib, helpers);
-require('./lib/utils')(lib, xelib, helpers);
+require('./src/meta')(lib, xelib, helpers);
+require('./src/messages')(lib, xelib, helpers);
+require('./src/setup')(lib, xelib, helpers);
+require('./src/archives')(lib, xelib, helpers);
+require('./src/files')(lib, xelib, helpers);
+require('./src/masters')(lib, xelib, helpers);
+require('./src/elements')(lib, xelib, helpers);
+require('./src/errors')(lib, xelib, helpers);
+require('./src/elementValues')(lib, xelib, helpers, types);
+require('./src/serialization')(lib, xelib, helpers);
+require('./src/records')(lib, xelib, helpers);
+require('./src/groups')(lib, xelib, helpers);
+require('./src/filter')(lib, xelib, helpers);
+require('./src/fileValues')(lib, xelib, helpers);
+require('./src/recordValues')(lib, xelib, helpers);
+require('./src/common')(lib, xelib, helpers);
+require('./src/utils')(lib, xelib, helpers);
 
 module.exports = {
     helpers: helpers,
