@@ -1,8 +1,8 @@
 const xelib = {};
 
-const types = require('src/types');
-const lib = require('src/lib')(xelib, types);
-const helpers = require('src/helpers')(lib, xelib, types);
+const types = require('./src/types');
+const lib = require('./src/lib')(xelib, types);
+const helpers = require('./src/helpers')(lib, xelib, types);
 
 require('./src/meta')(lib, xelib, helpers);
 require('./src/messages')(lib, xelib, helpers);
