@@ -3,9 +3,14 @@ module.exports = function(lib, xelib, types) {
         {PWChar, PCardinal, PInteger, PWordBool, PByte} = types;
 
     // LOGGER SETUP
-    xelib.verbose = false;
-    xelib.logger = console;
-    xelib.printStack = true;
+    let setDefault = function(key, value) {
+        if (xelib.hasOwnProperty(key)) return;
+        xelib[key] = value;
+    };
+
+    setDefault('verbose', false);
+    setDefault('logger', console);
+    setDefault('printStack', true);
 
     // HELPER FUNCTIONS
     let createTypedBuffer = function(size, type) {

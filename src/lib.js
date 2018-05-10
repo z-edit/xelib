@@ -1,11 +1,11 @@
 const ffi = require('ffi');
 
-module.exports = function(xelib, types) {
+module.exports = function(xelib, types, buildWrapper) {
     let { Void, Cardinal,  Integer,  WordBool,  Double,  Byte, PWChar,
         PCardinal, PInteger, PWordBool, PDouble, PByte } = types;
 
     xelib.Initialize = function(path) {
-        return ffi.Library(path, {
+        let lib = ffi.Library(path, {
             // META METHODS
             'InitXEdit': [Void, []],
             'CloseXEdit': [Void, []],
@@ -171,5 +171,8 @@ module.exports = function(xelib, types) {
             'FilterRecord': [WordBool, [Cardinal]],
             'ResetFilter': [WordBool, []],
         });
+
+        lib.InitXEdit();
+        buildWrapper(lib);
     };
 };
