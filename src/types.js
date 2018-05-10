@@ -9,10 +9,10 @@ module.exports = {
     Integer: ref.types.int32,
     Double: ref.types.double,
     Byte: ref.types.byte,
-    PWChar: ref.refType(WString),
-    PCardinal: ref.refType(Cardinal),
-    PInteger: ref.refType(Integer),
-    PWordBool: ref.refType(WordBool),
-    PDouble: ref.refType(Double),
-    PByte: ref.refType(Byte)
+    PWChar: ref.refType(wchar_t.string),
+    PCardinal: ref.refType(ref.types.uint32),
+    PInteger: ref.refType(ref.types.int32),
+    PWordBool: ref.refType(ref.types.uint16),
+    PDouble: ref.refType(ref.types.double),
+    PByte: ref.refType(ref.types.byte)
 };
