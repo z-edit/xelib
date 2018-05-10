@@ -38,6 +38,8 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, ClearMessages);
     NAN_EXPORT(target, GetExceptionMessageLength);
     NAN_EXPORT(target, GetExceptionMessage);
+    NAN_EXPORT(target, GetExceptionStackLength);
+    NAN_EXPORT(target, GetExceptionStack);
 
     // LOADING AND SET UP METHODS
     NAN_EXPORT(target, GetGamePath);

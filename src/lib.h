@@ -16,7 +16,7 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 150;
+const int NUM_FUNCTIONS = 152;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
@@ -25,7 +25,7 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "ResetStore",
     // MESSAGE METHODS
     "GetMessagesLength", "GetMessages", "ClearMessages", "GetExceptionMessageLength",
-    "GetExceptionMessage",
+    "GetExceptionMessage", "GetExceptionStackLength", "GetExceptionStack",
     // LOADING AND SET UP METHODS
     "GetGamePath", "SetGamePath", "SetLanguage", "SetBackupPath", "SetGameMode", "GetLoadOrder",
     "GetActivePlugins", "LoadPlugins", "LoadPlugin", "LoadPluginHeader", "BuildReferences",
@@ -87,6 +87,8 @@ struct functions_struct {
     void  (__cdecl* ClearMessages)();
     void  (__cdecl* GetExceptionMessageLength)(PInteger);
     WordBool  (__cdecl* GetExceptionMessage)(PWChar, Integer);
+    void  (__cdecl* GetExceptionStackLength)(PInteger);
+    WordBool  (__cdecl* GetExceptionStack)(PWChar, Integer);
     // LOADING AND SET UP METHODS
     WordBool  (__cdecl* GetGamePath)(Integer, PInteger);
     WordBool  (__cdecl* SetGamePath)(PWChar);

@@ -33,3 +33,16 @@ NAN_METHOD(GetExceptionMessage) {
     if (len > 0) success = xelib.functions.GetExceptionMessage(result, len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
+
+NAN_METHOD(GetExceptionStackLength) {
+    PInteger len = (PInteger) node::Buffer::Data(info[0]->ToObject());
+    xelib.functions.GetExceptionStackLength(len);
+}
+
+NAN_METHOD(GetExceptionStack) {
+    PWChar result = (PWChar) node::Buffer::Data(info[0]->ToObject());
+    Integer len = info[1]->Int32Value();
+    WordBool success = true;
+    if (len > 0) success = xelib.functions.GetExceptionStack(result, len);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}

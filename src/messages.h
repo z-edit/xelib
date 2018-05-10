@@ -9,5 +9,7 @@ NAN_METHOD(GetMessages);
 NAN_METHOD(ClearMessages);
 NAN_METHOD(GetExceptionMessageLength);
 NAN_METHOD(GetExceptionMessage);
+NAN_METHOD(GetExceptionStackLength);
+NAN_METHOD(GetExceptionStack);
 
 #endif
