@@ -81,7 +81,7 @@ module.exports = function(xelib, types, buildWrapper) {
             'RemoveElement': [WordBool, [Cardinal, PWChar]],
             'RemoveElementOrParent': [WordBool, [Cardinal]],
             'SetElement': [WordBool, [Cardinal, Cardinal, PCardinal]],
-            'GetElements': [WordBool, [Cardinal, PWChar, WordBool, PInteger]],
+            'GetElements': [WordBool, [Cardinal, PWChar, WordBool, WordBool, PInteger]],
             'GetDefNames': [WordBool, [Cardinal, PInteger]],
             'GetAddList': [WordBool, [Cardinal, PInteger]],
             'GetContainer': [WordBool, [Cardinal, PCardinal]],
