@@ -27,7 +27,7 @@ module.exports = function(lib, xelib, types) {
     };
 
     helpers.wcb = function(value) {
-        let buf = createTypedBuffer(value.length * 2 + 1, PWChar);
+        let buf = createTypedBuffer((value.length + 1) * 2, PWChar);
         buf.write(value, 0, 'ucs2');
         return buf;
     };
