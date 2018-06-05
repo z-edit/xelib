@@ -8,7 +8,7 @@ The C++ wrapper and the JavaScript wrapper are both complete.  Could use some un
 Install using npm.  Will be published to npm soon.
 
 ```
-npm i matortheeternal/xelib
+npm i z-edit/xelib
 ```
 
 ## usage
