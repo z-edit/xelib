@@ -10,9 +10,11 @@
   "scripts": {
     "configure": "node-gyp configure",
     "build": "node-gyp build",
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "eslint index.js ./lib/*.js"
   },
   "devDependencies": {
+    "eslint": "^5.2.0",
     "mocha": "^2.2.5",
     "node-gyp": "^1.0.3"
   },

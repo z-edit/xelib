@@ -1,12 +1,12 @@
 const xelib = {};
 
 let lock = function(fn) {
-    return function() {
+    return function(...args) {
         let n = 0;
         while (xelib.locked) n = n++ % 1000000;
         xelib.locked = true;
         try {
-            return fn(...arguments);
+            return fn(...args);
         } finally {
             xelib.locked = false;
         }
