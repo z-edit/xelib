@@ -69,7 +69,7 @@ NAN_METHOD(GetIntValue) {
 NAN_METHOD(SetIntValue) {
     Cardinal element = info[0]->Uint32Value();
     PWChar path = (PWChar) node::Buffer::Data(info[1]->ToObject());
-    Integer value = info[0]->Int32Value();
+    Integer value = info[2]->Int32Value();
     WordBool success = xelib.functions.SetIntValue(element, path, value);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
