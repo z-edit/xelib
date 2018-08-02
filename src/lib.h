@@ -16,7 +16,7 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 152;
+const int NUM_FUNCTIONS = 153;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
@@ -58,10 +58,11 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "GetFlag", "SetFlag", "GetEnabledFlags", "SetEnabledFlags", "GetAllFlags", "GetEnumOptions",
     "SignatureFromName", "NameFromSignature", "GetSignatureNameMap",
     // RECORD HANDLING METHODS
-    "GetFormID", "SetFormID", "GetRecord", "GetRecords", "GetOverrides", "GetReferencedBy",
-    "GetMasterRecord", "GetPreviousOverride", "GetWinningOverride", "FindNextRecord",
-    "FindPreviousRecord", "FindValidReferences", "ExchangeReferences", "IsMaster", "IsInjected",
-    "IsOverride", "IsWinningOverride", "GetNodes", "GetConflictData", "GetNodeElements",
+    "GetFormID", "SetFormID", "GetRecord", "GetRecords", "GetRecordsByRef", "GetOverrides",
+    "GetReferencedBy", "GetMasterRecord", "GetPreviousOverride", "GetWinningOverride",
+    "FindNextRecord", "FindPreviousRecord", "FindValidReferences", "ExchangeReferences",
+    "IsMaster", "IsInjected", "IsOverride", "IsWinningOverride", "GetNodes",
+    "GetConflictData", "GetNodeElements",
     // FILTERING METHODS
     "FilterRecord", "ResetFilter"
 };
@@ -212,6 +213,7 @@ struct functions_struct {
     WordBool  (__cdecl* SetFormID)(Cardinal, Cardinal, WordBool, WordBool);
     WordBool  (__cdecl* GetRecord)(Cardinal, Cardinal, PCardinal);
     WordBool  (__cdecl* GetRecords)(Cardinal, PWChar, WordBool, PInteger);
+    WordBool  (__cdecl* GetRecordsByRef)(Cardinal, PWChar, PWChar, PWChar, WordBool, PInteger);
     WordBool  (__cdecl* GetOverrides)(Cardinal, PInteger);
     WordBool  (__cdecl* GetReferencedBy)(Cardinal, PInteger);
     WordBool  (__cdecl* GetMasterRecord)(Cardinal, PCardinal);

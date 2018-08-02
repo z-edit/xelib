@@ -8,6 +8,7 @@ NAN_METHOD(GetFormID);
 NAN_METHOD(SetFormID);
 NAN_METHOD(GetRecord);
 NAN_METHOD(GetRecords);
+NAN_METHOD(GetRecordsByRef);
 NAN_METHOD(GetOverrides);
 NAN_METHOD(GetReferencedBy);
 NAN_METHOD(GetMasterRecord);
