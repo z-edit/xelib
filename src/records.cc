@@ -39,14 +39,12 @@ NAN_METHOD(GetRecords) {
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
-NAN_METHOD(GetRecordsByRef) {
+NAN_METHOD(GetREFRs) {
     Cardinal element = info[0]->Uint32Value();
     PWChar search = (PWChar) node::Buffer::Data(info[1]->ToObject());
-    PWChar path = (PWChar) node::Buffer::Data(info[2]->ToObject());
-    PWChar target = (PWChar) node::Buffer::Data(info[3]->ToObject());
-    WordBool includeOverrides = (WordBool) info[4]->BooleanValue();
-    PInteger len = (PInteger) node::Buffer::Data(info[5]->ToObject());
-    WordBool success = xelib.functions.GetRecordsByRef(element, search, path, target, includeOverrides, len);
+    Cardinal flags = info[2]->Uint32Value();
+    PInteger len = (PInteger) node::Buffer::Data(info[3]->ToObject());
+    WordBool success = xelib.functions.GetREFRs(element, search, flags, len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 

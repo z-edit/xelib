@@ -58,7 +58,7 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "GetFlag", "SetFlag", "GetEnabledFlags", "SetEnabledFlags", "GetAllFlags", "GetEnumOptions",
     "SignatureFromName", "NameFromSignature", "GetSignatureNameMap",
     // RECORD HANDLING METHODS
-    "GetFormID", "SetFormID", "GetRecord", "GetRecords", "GetRecordsByRef", "GetOverrides",
+    "GetFormID", "SetFormID", "GetRecord", "GetRecords", "GetREFRs", "GetOverrides",
     "GetReferencedBy", "GetMasterRecord", "GetPreviousOverride", "GetWinningOverride",
     "FindNextRecord", "FindPreviousRecord", "FindValidReferences", "ExchangeReferences",
     "IsMaster", "IsInjected", "IsOverride", "IsWinningOverride", "GetNodes",
@@ -213,7 +213,7 @@ struct functions_struct {
     WordBool  (__cdecl* SetFormID)(Cardinal, Cardinal, WordBool, WordBool);
     WordBool  (__cdecl* GetRecord)(Cardinal, Cardinal, PCardinal);
     WordBool  (__cdecl* GetRecords)(Cardinal, PWChar, WordBool, PInteger);
-    WordBool  (__cdecl* GetRecordsByRef)(Cardinal, PWChar, PWChar, PWChar, WordBool, PInteger);
+    WordBool  (__cdecl* GetREFRs)(Cardinal, PWChar, Cardinal, PInteger);
     WordBool  (__cdecl* GetOverrides)(Cardinal, PInteger);
     WordBool  (__cdecl* GetReferencedBy)(Cardinal, PInteger);
     WordBool  (__cdecl* GetMasterRecord)(Cardinal, PCardinal);

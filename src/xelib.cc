@@ -172,7 +172,7 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, SetFormID);
     NAN_EXPORT(target, GetRecord);
     NAN_EXPORT(target, GetRecords);
-    NAN_EXPORT(target, GetRecordsByRef);
+    NAN_EXPORT(target, GetREFRs);
     NAN_EXPORT(target, GetOverrides);
     NAN_EXPORT(target, GetReferencedBy);
     NAN_EXPORT(target, GetMasterRecord);
