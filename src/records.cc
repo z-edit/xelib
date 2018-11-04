@@ -25,8 +25,9 @@ NAN_METHOD(SetFormID) {
 NAN_METHOD(GetRecord) {
     Cardinal element = info[0]->Uint32Value();
     Cardinal formId = info[1]->Uint32Value();
-    PCardinal _res = (PCardinal) node::Buffer::Data(info[2]->ToObject());
-    WordBool success = xelib.functions.GetRecord(element, formId, _res);
+    WordBool searchMasters = (WordBool) info[2]->BooleanValue();
+    PCardinal _res = (PCardinal) node::Buffer::Data(info[3]->ToObject());
+    WordBool success = xelib.functions.GetRecord(element, formId, searchMasters, _res);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 

@@ -211,7 +211,7 @@ struct functions_struct {
     // RECORD HANDLING METHODS
     WordBool  (__cdecl* GetFormID)(Cardinal, PCardinal, WordBool);
     WordBool  (__cdecl* SetFormID)(Cardinal, Cardinal, WordBool, WordBool);
-    WordBool  (__cdecl* GetRecord)(Cardinal, Cardinal, PCardinal);
+    WordBool  (__cdecl* GetRecord)(Cardinal, Cardinal, WordBool, PCardinal);
     WordBool  (__cdecl* GetRecords)(Cardinal, PWChar, WordBool, PInteger);
     WordBool  (__cdecl* GetREFRs)(Cardinal, PWChar, Cardinal, PInteger);
     WordBool  (__cdecl* GetOverrides)(Cardinal, PInteger);
