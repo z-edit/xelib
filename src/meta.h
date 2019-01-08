@@ -7,6 +7,7 @@ NAN_METHOD(InitXEdit);
 NAN_METHOD(CloseXEdit);
 NAN_METHOD(GetResultString);
 NAN_METHOD(GetResultArray);
+NAN_METHOD(GetResultBytes);
 NAN_METHOD(GetGlobal);
 NAN_METHOD(GetGlobals);
 NAN_METHOD(SetSortMode);

@@ -2,6 +2,7 @@
 #include "messages.h"
 #include "setup.h"
 #include "archives.h"
+#include "textures.h"
 #include "files.h"
 #include "masters.h"
 #include "elements.h"
@@ -22,6 +23,7 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, CloseXEdit);
     NAN_EXPORT(target, GetResultString);
     NAN_EXPORT(target, GetResultArray);
+    NAN_EXPORT(target, GetResultBytes);
     NAN_EXPORT(target, GetGlobal);
     NAN_EXPORT(target, GetGlobals);
     NAN_EXPORT(target, SetSortMode);
@@ -56,12 +58,15 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, GetLoaderStatus);
     NAN_EXPORT(target, UnloadPlugin);
 
-    // LOADING AND SET UP METHODS
+    // ARCHIVE METHODS
     NAN_EXPORT(target, ExtractContainer);
     NAN_EXPORT(target, ExtractFile);
     NAN_EXPORT(target, GetContainerFiles);
     NAN_EXPORT(target, GetLoadedContainers);
     NAN_EXPORT(target, LoadContainer);
+
+    // TEXTURE METHODS
+    NAN_EXPORT(target, GetBitmapResource);
 
     // FILE HANDLING METHODS
     NAN_EXPORT(target, AddFile);

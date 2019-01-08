@@ -9,6 +9,7 @@
         "src/messages.cc",
         "src/setup.cc",
         "src/archives.cc",
+        "src/textures.cc",
         "src/files.cc",
         "src/masters.cc",
         "src/elements.cc",

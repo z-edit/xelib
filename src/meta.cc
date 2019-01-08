@@ -38,6 +38,14 @@ NAN_METHOD(GetResultArray) {
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
+NAN_METHOD(GetResultBytes) {
+    PByte result = (PByte) node::Buffer::Data(info[0]->ToObject());
+    Integer len = info[1]->Int32Value();
+    WordBool success = true;
+    if (len > 0) success = xelib.functions.GetResultBytes(result, len);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
 NAN_METHOD(GetGlobal) {
     PWChar key = (PWChar) node::Buffer::Data(info[0]->ToObject());
     PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());

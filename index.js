@@ -7,6 +7,7 @@ require('./lib/meta')(lib, xelib, helpers);
 require('./lib/messages')(lib, xelib, helpers);
 require('./lib/setup')(lib, xelib, helpers);
 require('./lib/archives')(lib, xelib, helpers);
+require('./lib/textures')(lib, xelib, helpers);
 require('./lib/files')(lib, xelib, helpers);
 require('./lib/masters')(lib, xelib, helpers);
 require('./lib/elements')(lib, xelib, helpers);

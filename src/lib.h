@@ -16,13 +16,13 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 153;
+const int NUM_FUNCTIONS = 155;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
-    "InitXEdit", "CloseXEdit", "GetResultString", "GetResultArray", "GetGlobal", "GetGlobals",
-    "SetSortMode", "Release", "ReleaseNodes", "Switch", "GetDuplicateHandles", "CleanStore",
-    "ResetStore",
+    "InitXEdit", "CloseXEdit", "GetResultString", "GetResultArray", "GetResultBytes",
+    "GetGlobal", "GetGlobals", "SetSortMode", "Release", "ReleaseNodes", "Switch",
+    "GetDuplicateHandles", "CleanStore", "ResetStore",
     // MESSAGE METHODS
     "GetMessagesLength", "GetMessages", "ClearMessages", "GetExceptionMessageLength",
     "GetExceptionMessage", "GetExceptionStackLength", "GetExceptionStack",
@@ -32,6 +32,8 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "GetLoaderStatus", "UnloadPlugin",
     // ARCHIVE HANDLING METHODS
     "ExtractContainer", "ExtractFile", "GetContainerFiles", "GetLoadedContainers", "LoadContainer",
+    // TEXTURE HANDLING METHODS
+    "GetBitmapResource",
     // FILE HANDLING METHODS
     "AddFile", "FileByIndex", "FileByLoadOrder", "FileByName", "FileByAuthor", "NukeFile",
     "RenameFile", "SaveFile", "GetRecordCount", "GetOverrideRecordCount", "MD5Hash", "CRCHash",
@@ -73,6 +75,7 @@ struct functions_struct {
     void  (__cdecl* CloseXEdit)();
     WordBool  (__cdecl* GetResultString)(PWChar, Integer);
     WordBool  (__cdecl* GetResultArray)(PCardinal, Integer);
+    WordBool  (__cdecl* GetResultBytes)(PByte, Integer);
     WordBool  (__cdecl* GetGlobal)(PWChar, PInteger);
     WordBool  (__cdecl* GetGlobals)(PInteger);
     WordBool  (__cdecl* SetSortMode)(Byte, WordBool);
@@ -110,6 +113,8 @@ struct functions_struct {
     WordBool  (__cdecl* GetContainerFiles)(PWChar, PInteger);
     WordBool  (__cdecl* GetLoadedContainers)(PInteger);
     WordBool  (__cdecl* LoadContainer)(PWChar);
+    // TEXTURE HANDLING METHODS
+    WordBool  (__cdecl* GetBitmapResource)(PWChar, PInteger, PInteger);
     // FILE HANDLING METHODS
     WordBool  (__cdecl* AddFile)(PWChar, PCardinal);
     WordBool  (__cdecl* FileByIndex)(Integer, PCardinal);
