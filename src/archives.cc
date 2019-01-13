@@ -22,8 +22,9 @@ NAN_METHOD(ExtractFile) {
 
 NAN_METHOD(GetContainerFiles) {
     PWChar name = (PWChar) node::Buffer::Data(info[0]->ToObject());
-    PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());
-    WordBool success = xelib.functions.GetContainerFiles(name, len);
+    PWChar folder = (PWChar) node::Buffer::Data(info[1]->ToObject());
+    PInteger len = (PInteger) node::Buffer::Data(info[2]->ToObject());
+    WordBool success = xelib.functions.GetContainerFiles(name, folder, len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 

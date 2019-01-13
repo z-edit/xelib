@@ -110,7 +110,7 @@ struct functions_struct {
     // ARCHIVE HANDLING METHODS
     WordBool  (__cdecl* ExtractContainer)(PWChar, PWChar, WordBool);
     WordBool  (__cdecl* ExtractFile)(PWChar, PWChar, PWChar);
-    WordBool  (__cdecl* GetContainerFiles)(PWChar, PInteger);
+    WordBool  (__cdecl* GetContainerFiles)(PWChar, PWChar, PInteger);
     WordBool  (__cdecl* GetLoadedContainers)(PInteger);
     WordBool  (__cdecl* LoadContainer)(PWChar);
     // TEXTURE HANDLING METHODS
