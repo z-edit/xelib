@@ -85,6 +85,13 @@ NAN_METHOD(GetWinningOverride) {
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
+NAN_METHOD(GetInjectionTarget) {
+    Cardinal element = info[0]->Uint32Value();
+    PCardinal _res = (PCardinal) node::Buffer::Data(info[1]->ToObject());
+    WordBool success = xelib.functions.GetInjectionTarget(element, _res);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
 NAN_METHOD(FindNextRecord) {
     Cardinal element = info[0]->Uint32Value();
     PWChar search = (PWChar) node::Buffer::Data(info[1]->ToObject());

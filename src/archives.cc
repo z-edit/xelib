@@ -28,6 +28,13 @@ NAN_METHOD(GetContainerFiles) {
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
+NAN_METHOD(GetFileContainer) {
+    PWChar filePath = (PWChar) node::Buffer::Data(info[0]->ToObject());
+    PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());
+    WordBool success = xelib.functions.GetFileContainer(filePath, len);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
 NAN_METHOD(GetLoadedContainers) {
     PInteger len = (PInteger) node::Buffer::Data(info[0]->ToObject());
     WordBool success = xelib.functions.GetLoadedContainers(len);
@@ -37,5 +44,18 @@ NAN_METHOD(GetLoadedContainers) {
 NAN_METHOD(LoadContainer) {
     PWChar filePath = (PWChar) node::Buffer::Data(info[0]->ToObject());
     WordBool success = xelib.functions.LoadContainer(filePath);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
+NAN_METHOD(BuildArchive) {
+    PWChar name = (PWChar) node::Buffer::Data(info[0]->ToObject());
+    PWChar folder = (PWChar) node::Buffer::Data(info[1]->ToObject());
+    PWChar filePaths = (PWChar) node::Buffer::Data(info[2]->ToObject());
+    Integer archiveType = info[3]->Int32Value();
+    WordBool bCompress = (WordBool) info[4]->Uint32Value();
+    WordBool bShare = (WordBool) info[5]->Uint32Value();
+    PWChar ff = (PWChar) node::Buffer::Data(info[6]->ToObject());
+    PWChar af = (PWChar) node::Buffer::Data(info[7]->ToObject());
+    WordBool success = xelib.functions.BuildArchive(name, folder, filePaths, archiveType, bCompress, bShare, ff, af);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }

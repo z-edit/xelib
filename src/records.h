@@ -14,6 +14,7 @@ NAN_METHOD(GetReferencedBy);
 NAN_METHOD(GetMasterRecord);
 NAN_METHOD(GetPreviousOverride);
 NAN_METHOD(GetWinningOverride);
+NAN_METHOD(GetInjectionTarget);
 NAN_METHOD(FindNextRecord);
 NAN_METHOD(FindPreviousRecord);
 NAN_METHOD(FindValidReferences);

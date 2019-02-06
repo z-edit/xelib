@@ -16,7 +16,7 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 155;
+const int NUM_FUNCTIONS = 158;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
@@ -31,7 +31,8 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "GetActivePlugins", "LoadPlugins", "LoadPlugin", "LoadPluginHeader", "BuildReferences",
     "GetLoaderStatus", "UnloadPlugin",
     // ARCHIVE HANDLING METHODS
-    "ExtractContainer", "ExtractFile", "GetContainerFiles", "GetLoadedContainers", "LoadContainer",
+    "ExtractContainer", "ExtractFile", "GetContainerFiles", "GetFileContainer", "GetLoadedContainers",
+    "LoadContainer", "BuildArchive",
     // TEXTURE HANDLING METHODS
     "GetBitmapResource",
     // FILE HANDLING METHODS
@@ -62,9 +63,9 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // RECORD HANDLING METHODS
     "GetFormID", "SetFormID", "GetRecord", "GetRecords", "GetREFRs", "GetOverrides",
     "GetReferencedBy", "GetMasterRecord", "GetPreviousOverride", "GetWinningOverride",
-    "FindNextRecord", "FindPreviousRecord", "FindValidReferences", "ExchangeReferences",
-    "IsMaster", "IsInjected", "IsOverride", "IsWinningOverride", "GetNodes",
-    "GetConflictData", "GetNodeElements",
+    "GetInjectionTarget", "FindNextRecord", "FindPreviousRecord", "FindValidReferences",
+    "ExchangeReferences", "IsMaster", "IsInjected", "IsOverride", "IsWinningOverride",
+    "GetNodes", "GetConflictData", "GetNodeElements",
     // FILTERING METHODS
     "FilterRecord", "ResetFilter"
 };
@@ -111,8 +112,10 @@ struct functions_struct {
     WordBool  (__cdecl* ExtractContainer)(PWChar, PWChar, WordBool);
     WordBool  (__cdecl* ExtractFile)(PWChar, PWChar, PWChar);
     WordBool  (__cdecl* GetContainerFiles)(PWChar, PWChar, PInteger);
+    WordBool  (__cdecl* GetFileContainer)(PWChar, PInteger);
     WordBool  (__cdecl* GetLoadedContainers)(PInteger);
     WordBool  (__cdecl* LoadContainer)(PWChar);
+    WordBool  (__cdecl* BuildArchive)(PWChar, PWChar, PWChar, Integer, WordBool, WordBool, PWChar, PWChar);
     // TEXTURE HANDLING METHODS
     WordBool  (__cdecl* GetBitmapResource)(PWChar, PInteger, PInteger);
     // FILE HANDLING METHODS
@@ -224,6 +227,7 @@ struct functions_struct {
     WordBool  (__cdecl* GetMasterRecord)(Cardinal, PCardinal);
     WordBool  (__cdecl* GetPreviousOverride)(Cardinal, Cardinal, PCardinal);
     WordBool  (__cdecl* GetWinningOverride)(Cardinal, PCardinal);
+    WordBool  (__cdecl* GetInjectionTarget)(Cardinal, PCardinal);
     WordBool  (__cdecl* FindNextRecord)(Cardinal, PWChar, WordBool, WordBool, PCardinal);
     WordBool  (__cdecl* FindPreviousRecord)(Cardinal, PWChar, WordBool, WordBool, PCardinal);
     WordBool  (__cdecl* FindValidReferences)(Cardinal, PWChar, PWChar, Integer, PInteger);
