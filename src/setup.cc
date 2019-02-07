@@ -4,9 +4,23 @@
 
 using namespace Nan;
 
+NAN_METHOD(GetGamePath) {
+    int gameMode = info[0]->Int32Value();
+    PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());
+    WordBool success = xelib.functions.GetGamePath(gameMode, len);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
 NAN_METHOD(SetGamePath) {
     PWChar gamePath = (PWChar) node::Buffer::Data(info[0]->ToObject());
     WordBool success = xelib.functions.SetGamePath(gamePath);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
+NAN_METHOD(GetGameLanguage) {
+    int gameMode = info[0]->Int32Value();
+    PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());
+    WordBool success = xelib.functions.GetGameLanguage(gameMode, len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
@@ -25,13 +39,6 @@ NAN_METHOD(SetBackupPath) {
 NAN_METHOD(SetGameMode) {
     int gameMode = info[0]->Int32Value();
     WordBool success = xelib.functions.SetGameMode(gameMode);
-    info.GetReturnValue().Set(Nan::New((bool) success));
-}
-
-NAN_METHOD(GetGamePath) {
-    int gameMode = info[0]->Int32Value();
-    PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());
-    WordBool success = xelib.functions.GetGamePath(gameMode, len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 

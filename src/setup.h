@@ -4,11 +4,12 @@
 #include <nan.h>
 
 // NAN METHODS
+NAN_METHOD(GetGamePath);
 NAN_METHOD(SetGamePath);
+NAN_METHOD(GetGameLanguage);
 NAN_METHOD(SetLanguage);
 NAN_METHOD(SetBackupPath);
 NAN_METHOD(SetGameMode);
-NAN_METHOD(GetGamePath);
 NAN_METHOD(GetLoadOrder);
 NAN_METHOD(GetActivePlugins);
 NAN_METHOD(LoadPlugins);

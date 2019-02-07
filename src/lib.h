@@ -16,7 +16,7 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 158;
+const int NUM_FUNCTIONS = 159;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
@@ -27,12 +27,12 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "GetMessagesLength", "GetMessages", "ClearMessages", "GetExceptionMessageLength",
     "GetExceptionMessage", "GetExceptionStackLength", "GetExceptionStack",
     // LOADING AND SET UP METHODS
-    "GetGamePath", "SetGamePath", "SetLanguage", "SetBackupPath", "SetGameMode", "GetLoadOrder",
-    "GetActivePlugins", "LoadPlugins", "LoadPlugin", "LoadPluginHeader", "BuildReferences",
-    "GetLoaderStatus", "UnloadPlugin",
+    "GetGamePath", "SetGamePath", "GetGameLanguage", "SetLanguage", "SetBackupPath",
+    "SetGameMode", "GetLoadOrder", "GetActivePlugins", "LoadPlugins", "LoadPlugin",
+    "LoadPluginHeader", "BuildReferences", "GetLoaderStatus", "UnloadPlugin",
     // ARCHIVE HANDLING METHODS
-    "ExtractContainer", "ExtractFile", "GetContainerFiles", "GetFileContainer", "GetLoadedContainers",
-    "LoadContainer", "BuildArchive",
+    "ExtractContainer", "ExtractFile", "GetContainerFiles", "GetFileContainer",
+    "GetLoadedContainers", "LoadContainer", "BuildArchive",
     // TEXTURE HANDLING METHODS
     "GetBitmapResource",
     // FILE HANDLING METHODS
@@ -97,6 +97,7 @@ struct functions_struct {
     // LOADING AND SET UP METHODS
     WordBool  (__cdecl* GetGamePath)(Integer, PInteger);
     WordBool  (__cdecl* SetGamePath)(PWChar);
+    WordBool  (__cdecl* GetGameLanguage)(Integer, PInteger);
     WordBool  (__cdecl* SetLanguage)(PWChar);
     WordBool  (__cdecl* SetBackupPath)(PWChar);
     WordBool  (__cdecl* SetGameMode)(Integer);
