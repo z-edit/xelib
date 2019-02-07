@@ -1,8 +1,7 @@
 #include "meta.h"
 #include "messages.h"
 #include "setup.h"
-#include "archives.h"
-#include "textures.h"
+#include "resources.h"
 #include "files.h"
 #include "masters.h"
 #include "elements.h"
@@ -46,6 +45,7 @@ NAN_MODULE_INIT(InitAll) {
     // LOADING AND SET UP METHODS
     NAN_EXPORT(target, GetGamePath);
     NAN_EXPORT(target, SetGamePath);
+    NAN_EXPORT(target, GetGameLanguage);
     NAN_EXPORT(target, SetLanguage);
     NAN_EXPORT(target, SetBackupPath);
     NAN_EXPORT(target, SetGameMode);
@@ -58,15 +58,15 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, GetLoaderStatus);
     NAN_EXPORT(target, UnloadPlugin);
 
-    // ARCHIVE METHODS
+    // RESOURCE HANDLING METHODS
     NAN_EXPORT(target, ExtractContainer);
     NAN_EXPORT(target, ExtractFile);
     NAN_EXPORT(target, GetContainerFiles);
+    NAN_EXPORT(target, GetFileContainer);
     NAN_EXPORT(target, GetLoadedContainers);
     NAN_EXPORT(target, LoadContainer);
-
-    // TEXTURE METHODS
-    NAN_EXPORT(target, GetBitmapResource);
+    NAN_EXPORT(target, BuildArchive);
+    NAN_EXPORT(target, GetTextureData);
 
     // FILE HANDLING METHODS
     NAN_EXPORT(target, AddFile);
@@ -183,6 +183,7 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, GetMasterRecord);
     NAN_EXPORT(target, GetPreviousOverride);
     NAN_EXPORT(target, GetWinningOverride);
+    NAN_EXPORT(target, GetInjectionTarget);
     NAN_EXPORT(target, FindNextRecord);
     NAN_EXPORT(target, FindPreviousRecord);
     NAN_EXPORT(target, FindValidReferences);

@@ -1,5 +1,5 @@
 #include <nan.h>
-#include "archives.h"
+#include "resources.h"
 #include "lib.h"
 
 using namespace Nan;
@@ -57,5 +57,13 @@ NAN_METHOD(BuildArchive) {
     PWChar ff = (PWChar) node::Buffer::Data(info[6]->ToObject());
     PWChar af = (PWChar) node::Buffer::Data(info[7]->ToObject());
     WordBool success = xelib.functions.BuildArchive(name, folder, filePaths, archiveType, bCompress, bShare, ff, af);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
+NAN_METHOD(GetTextureData) {
+    PWChar name = (PWChar) node::Buffer::Data(info[0]->ToObject());
+    PInteger width = (PInteger) node::Buffer::Data(info[1]->ToObject());
+    PInteger height = (PInteger) node::Buffer::Data(info[2]->ToObject());
+    WordBool success = xelib.functions.GetTextureData(name, width, height);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }

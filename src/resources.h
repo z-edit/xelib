@@ -1,5 +1,5 @@
-#ifndef XELIB_ARCHIVES_H
-#define XELIB_ARCHIVES_H
+#ifndef XELIB_RESOURCES_H
+#define XELIB_RESOURCES_H
 
 #include <nan.h>
 
@@ -11,5 +11,6 @@ NAN_METHOD(GetFileContainer);
 NAN_METHOD(GetLoadedContainers);
 NAN_METHOD(LoadContainer);
 NAN_METHOD(BuildArchive);
+NAN_METHOD(GetTextureData);
 
 #endif

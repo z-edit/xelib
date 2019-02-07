@@ -30,11 +30,9 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "GetGamePath", "SetGamePath", "GetGameLanguage", "SetLanguage", "SetBackupPath",
     "SetGameMode", "GetLoadOrder", "GetActivePlugins", "LoadPlugins", "LoadPlugin",
     "LoadPluginHeader", "BuildReferences", "GetLoaderStatus", "UnloadPlugin",
-    // ARCHIVE HANDLING METHODS
+    // RESOURCE HANDLING METHODS
     "ExtractContainer", "ExtractFile", "GetContainerFiles", "GetFileContainer",
-    "GetLoadedContainers", "LoadContainer", "BuildArchive",
-    // TEXTURE HANDLING METHODS
-    "GetBitmapResource",
+    "GetLoadedContainers", "LoadContainer", "BuildArchive", "GetTextureData",
     // FILE HANDLING METHODS
     "AddFile", "FileByIndex", "FileByLoadOrder", "FileByName", "FileByAuthor", "NukeFile",
     "RenameFile", "SaveFile", "GetRecordCount", "GetOverrideRecordCount", "MD5Hash", "CRCHash",
@@ -109,7 +107,7 @@ struct functions_struct {
     WordBool  (__cdecl* BuildReferences)(Cardinal, WordBool);
     WordBool  (__cdecl* GetLoaderStatus)(PByte);
     WordBool  (__cdecl* UnloadPlugin)(Cardinal);
-    // ARCHIVE HANDLING METHODS
+    // RESOURCE HANDLING METHODS
     WordBool  (__cdecl* ExtractContainer)(PWChar, PWChar, WordBool);
     WordBool  (__cdecl* ExtractFile)(PWChar, PWChar, PWChar);
     WordBool  (__cdecl* GetContainerFiles)(PWChar, PWChar, PInteger);
@@ -117,8 +115,7 @@ struct functions_struct {
     WordBool  (__cdecl* GetLoadedContainers)(PInteger);
     WordBool  (__cdecl* LoadContainer)(PWChar);
     WordBool  (__cdecl* BuildArchive)(PWChar, PWChar, PWChar, Integer, WordBool, WordBool, PWChar, PWChar);
-    // TEXTURE HANDLING METHODS
-    WordBool  (__cdecl* GetBitmapResource)(PWChar, PInteger, PInteger);
+    WordBool  (__cdecl* GetTextureData)(PWChar, PInteger, PInteger);
     // FILE HANDLING METHODS
     WordBool  (__cdecl* AddFile)(PWChar, PCardinal);
     WordBool  (__cdecl* FileByIndex)(Integer, PCardinal);
