@@ -57,7 +57,8 @@ NAN_METHOD(GetActivePlugins) {
 NAN_METHOD(LoadPlugins) {
     PWChar plugins = (PWChar) node::Buffer::Data(info[0]->ToObject());
     WordBool smartLoad(info[1]->BooleanValue());
-    WordBool success = xelib.functions.LoadPlugins(plugins, smartLoad);
+    WordBool useDummies(info[2]->BooleanValue());
+    WordBool success = xelib.functions.LoadPlugins(plugins, smartLoad, useDummies);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 

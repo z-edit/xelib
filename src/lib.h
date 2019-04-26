@@ -101,7 +101,7 @@ struct functions_struct {
     WordBool  (__cdecl* SetGameMode)(Integer);
     WordBool  (__cdecl* GetLoadOrder)(PInteger);
     WordBool  (__cdecl* GetActivePlugins)(PInteger);
-    WordBool  (__cdecl* LoadPlugins)(PWChar, WordBool);
+    WordBool  (__cdecl* LoadPlugins)(PWChar, WordBool, WordBool);
     WordBool  (__cdecl* LoadPlugin)(PWChar);
     WordBool  (__cdecl* LoadPluginHeader)(PWChar, PCardinal);
     WordBool  (__cdecl* BuildReferences)(Cardinal, WordBool);
