@@ -6,8 +6,9 @@ using namespace Nan;
 
 NAN_METHOD(AddFile) {
     PWChar filename = (PWChar) node::Buffer::Data(info[0]->ToObject());
-    PCardinal handle = (PCardinal) node::Buffer::Data(info[1]->ToObject());
-    WordBool success = xelib.functions.AddFile(filename, handle);
+    WordBool ignoreExists(info[1]->BooleanValue());
+    PCardinal handle = (PCardinal) node::Buffer::Data(info[2]->ToObject());
+    WordBool success = xelib.functions.AddFile(filename, ignoreExists, handle);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 

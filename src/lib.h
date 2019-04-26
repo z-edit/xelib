@@ -117,7 +117,7 @@ struct functions_struct {
     WordBool  (__cdecl* BuildArchive)(PWChar, PWChar, PWChar, Integer, WordBool, WordBool, PWChar, PWChar);
     WordBool  (__cdecl* GetTextureData)(PWChar, PInteger, PInteger);
     // FILE HANDLING METHODS
-    WordBool  (__cdecl* AddFile)(PWChar, PCardinal);
+    WordBool  (__cdecl* AddFile)(PWChar, WordBool, PCardinal);
     WordBool  (__cdecl* FileByIndex)(Integer, PCardinal);
     WordBool  (__cdecl* FileByLoadOrder)(Integer, PCardinal);
     WordBool  (__cdecl* FileByName)(PWChar, PCardinal);
