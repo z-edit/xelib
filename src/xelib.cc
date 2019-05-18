@@ -147,6 +147,7 @@ NAN_MODULE_INIT(InitAll) {
     // SERIALIZATION METHODS
     NAN_EXPORT(target, ElementToJson);
     NAN_EXPORT(target, ElementFromJson);
+    NAN_EXPORT(target, DefToJson);
 
     // ELEMENT VALUE METHODS
     NAN_EXPORT(target, Name);
