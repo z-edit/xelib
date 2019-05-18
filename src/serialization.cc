@@ -18,3 +18,10 @@ NAN_METHOD(ElementFromJson) {
     WordBool success = xelib.functions.ElementFromJson(handle, path, json);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
+
+NAN_METHOD(DefToJson) {
+    Cardinal handle = info[0]->Uint32Value();
+    PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());
+    WordBool success = xelib.functions.DefToJson(handle, len);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}

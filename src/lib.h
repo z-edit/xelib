@@ -16,7 +16,7 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 159;
+const int NUM_FUNCTIONS = 161;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
@@ -52,7 +52,7 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // PLUGIN ERROR METHODS
     "CheckForErrors", "GetErrorThreadDone", "GetErrors", "RemoveIdenticalRecords",
     // SERIALIZATION METHODS
-    "ElementToJson", "ElementFromJson",
+    "ElementToJson", "ElementFromJson", "DefToJson",
     // ELEMENT VALUE METHODS
     "Name", "LongName", "DisplayName", "Path", "Signature", "GetValue", "SetValue", "GetIntValue",
     "SetIntValue", "GetUIntValue", "SetUIntValue", "GetFloatValue", "SetFloatValue",
@@ -63,7 +63,7 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "GetReferencedBy", "GetMasterRecord", "GetPreviousOverride", "GetWinningOverride",
     "GetInjectionTarget", "FindNextRecord", "FindPreviousRecord", "FindValidReferences",
     "ExchangeReferences", "IsMaster", "IsInjected", "IsOverride", "IsWinningOverride",
-    "GetNodes", "GetConflictData", "GetNodeElements",
+    "GetRecordDef", "GetNodes", "GetConflictData", "GetNodeElements",
     // FILTERING METHODS
     "FilterRecord", "ResetFilter"
 };
@@ -191,6 +191,7 @@ struct functions_struct {
     // SERIALIZATION METHODS
     WordBool  (__cdecl* ElementToJson)(Cardinal, PInteger);
     WordBool  (__cdecl* ElementFromJson)(Cardinal, PWChar, PWChar);
+    WordBool  (__cdecl* DefToJson)(Cardinal, PInteger);
     // ELEMENT VALUE METHODS
     WordBool  (__cdecl* Name)(Cardinal, PInteger);
     WordBool  (__cdecl* LongName)(Cardinal, PInteger);
@@ -234,6 +235,7 @@ struct functions_struct {
     WordBool  (__cdecl* IsInjected)(Cardinal, PWordBool);
     WordBool  (__cdecl* IsOverride)(Cardinal, PWordBool);
     WordBool  (__cdecl* IsWinningOverride)(Cardinal, PWordBool);
+    WordBool  (__cdecl* GetRecordDef)(Cardinal, PInteger);
     WordBool  (__cdecl* GetNodes)(Cardinal, PCardinal);
     WordBool  (__cdecl* GetConflictData)(Cardinal, Cardinal, PByte, PByte);
     WordBool  (__cdecl* GetNodeElements)(Cardinal, Cardinal, PInteger);

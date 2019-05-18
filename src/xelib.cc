@@ -192,6 +192,7 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, IsInjected);
     NAN_EXPORT(target, IsOverride);
     NAN_EXPORT(target, IsWinningOverride);
+    NAN_EXPORT(target, GetRecordDef);
     NAN_EXPORT(target, GetNodes);
     NAN_EXPORT(target, GetConflictData);
     NAN_EXPORT(target, GetNodeElements);

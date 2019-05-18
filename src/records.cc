@@ -158,6 +158,13 @@ NAN_METHOD(IsWinningOverride) {
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
+NAN_METHOD(GetRecordDef) {
+    PWChar sig = (PWChar) node::Buffer::Data(info[0]->ToObject());
+    PCardinal _res = (PCardinal) node::Buffer::Data(info[1]->ToObject());
+    WordBool success = xelib.functions.GetRecordDef(sig, _res);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
 NAN_METHOD(GetNodes) {
     Cardinal element = info[0]->Uint32Value();
     PCardinal _res = (PCardinal) node::Buffer::Data(info[1]->ToObject());

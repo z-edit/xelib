@@ -6,5 +6,6 @@
 // NAN METHODS
 NAN_METHOD(ElementToJson);
 NAN_METHOD(ElementFromJson);
+NAN_METHOD(DefToJson);
 
 #endif

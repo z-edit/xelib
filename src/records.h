@@ -23,6 +23,7 @@ NAN_METHOD(IsMaster);
 NAN_METHOD(IsInjected);
 NAN_METHOD(IsOverride);
 NAN_METHOD(IsWinningOverride);
+NAN_METHOD(GetRecordDef);
 NAN_METHOD(GetNodes);
 NAN_METHOD(GetConflictData);
 NAN_METHOD(GetNodeElements);
