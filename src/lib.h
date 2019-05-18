@@ -235,7 +235,7 @@ struct functions_struct {
     WordBool  (__cdecl* IsInjected)(Cardinal, PWordBool);
     WordBool  (__cdecl* IsOverride)(Cardinal, PWordBool);
     WordBool  (__cdecl* IsWinningOverride)(Cardinal, PWordBool);
-    WordBool  (__cdecl* GetRecordDef)(Cardinal, PInteger);
+    WordBool  (__cdecl* GetRecordDef)(PWChar, PCardinal);
     WordBool  (__cdecl* GetNodes)(Cardinal, PCardinal);
     WordBool  (__cdecl* GetConflictData)(Cardinal, Cardinal, PByte, PByte);
     WordBool  (__cdecl* GetNodeElements)(Cardinal, Cardinal, PInteger);
