@@ -33,3 +33,6 @@ let armorIronGauntlets = xelib.GetElement(0, 'Skyrim.esm\\00012E46');
 // GETTING A VALUE
 let fullName = xelib.GetValue(armorIronGauntlets, 'FULL');
 ```
+
+## additional ressources
+More information about the JavaScript wrapper can be found on the [zEdit Docs](https://z-edit.github.io/#/docs?t=Development%2FAPIs%2Fxelib).
