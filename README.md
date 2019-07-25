@@ -1,5 +1,5 @@
 # xelib
-Native node addon which wraps around XEditLib.dll.  Provides an API for interfacing with Bethesda Plugin files.
+Native node addon which wraps around XEditLib.dll.  Provides an API for interfacing with Bethesda Plugin files.  API documentation is available [here](https://z-edit.github.io/#/docs?t=Development%2FAPIs%2Fxelib).
 
 ## status
 The C++ wrapper and the JavaScript wrapper are both complete.  Could use some unit tests, but I'm not sure when I'll get around to those.
@@ -33,6 +33,3 @@ let armorIronGauntlets = xelib.GetElement(0, 'Skyrim.esm\\00012E46');
 // GETTING A VALUE
 let fullName = xelib.GetValue(armorIronGauntlets, 'FULL');
 ```
-
-## additional ressources
-More information about the JavaScript wrapper can be found on the [zEdit Docs](https://z-edit.github.io/#/docs?t=Development%2FAPIs%2Fxelib).
