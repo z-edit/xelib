@@ -1,5 +1,5 @@
 # xelib
-Native node addon which wraps around XEditLib.dll.  Provides an API for interfacing with Bethesda Plugin files.  API documentation is available [here](https://z-edit.github.io/#/docs?t=Development%2FAPIs%2Fxelib).
+Native node addon which wraps around XEditLib.dll.  Provides an API for interfacing with Bethesda Plugin files.  **[API documentation is available here](https://z-edit.github.io/#/docs?t=Development%2FAPIs%2Fxelib)**.
 
 ## status
 The C++ wrapper and the JavaScript wrapper are both complete.  Could use some unit tests, but I'm not sure when I'll get around to those.
