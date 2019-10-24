@@ -8,6 +8,7 @@ NAN_METHOD(Name);
 NAN_METHOD(LongName);
 NAN_METHOD(DisplayName);
 NAN_METHOD(Path);
+NAN_METHOD(PathName);
 NAN_METHOD(Signature);
 NAN_METHOD(GetValue);
 NAN_METHOD(SetValue);

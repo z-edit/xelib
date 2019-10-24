@@ -16,7 +16,7 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 161;
+const int NUM_FUNCTIONS = 162;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
@@ -54,8 +54,8 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // SERIALIZATION METHODS
     "ElementToJson", "ElementFromJson", "DefToJson",
     // ELEMENT VALUE METHODS
-    "Name", "LongName", "DisplayName", "Path", "Signature", "GetValue", "SetValue", "GetIntValue",
-    "SetIntValue", "GetUIntValue", "SetUIntValue", "GetFloatValue", "SetFloatValue",
+    "Name", "LongName", "DisplayName", "Path", "PathName", "Signature", "GetValue", "SetValue",
+    "GetIntValue", "SetIntValue", "GetUIntValue", "SetUIntValue", "GetFloatValue", "SetFloatValue",
     "GetFlag", "SetFlag", "GetEnabledFlags", "SetEnabledFlags", "GetAllFlags", "GetEnumOptions",
     "SignatureFromName", "NameFromSignature", "GetSignatureNameMap",
     // RECORD HANDLING METHODS
@@ -197,6 +197,7 @@ struct functions_struct {
     WordBool  (__cdecl* LongName)(Cardinal, PInteger);
     WordBool  (__cdecl* DisplayName)(Cardinal, PInteger);
     WordBool  (__cdecl* Path)(Cardinal, WordBool, WordBool, PInteger);
+    WordBool  (__cdecl* PathName)(Cardinal, PInteger);
     WordBool  (__cdecl* Signature)(Cardinal, PInteger);
     WordBool  (__cdecl* GetValue)(Cardinal, PWChar, PInteger);
     WordBool  (__cdecl* SetValue)(Cardinal, PWChar, PWChar);

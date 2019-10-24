@@ -35,6 +35,13 @@ NAN_METHOD(Path) {
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
+NAN_METHOD(PathName) {
+    Cardinal element = info[0]->Uint32Value();
+    PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());
+    WordBool success = xelib.functions.PathName(element, len);
+    info.GetReturnValue().Set(Nan::New((bool) success));
+}
+
 NAN_METHOD(Signature) {
     Cardinal element = info[0]->Uint32Value();
     PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());

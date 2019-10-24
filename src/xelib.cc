@@ -154,6 +154,7 @@ NAN_MODULE_INIT(InitAll) {
     NAN_EXPORT(target, LongName);
     NAN_EXPORT(target, DisplayName);
     NAN_EXPORT(target, Path);
+    NAN_EXPORT(target, PathName);
     NAN_EXPORT(target, Signature);
     NAN_EXPORT(target, GetValue);
     NAN_EXPORT(target, SetValue);
