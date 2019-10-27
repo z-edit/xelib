@@ -16,7 +16,7 @@ typedef Integer* PInteger;
 typedef std::wstring* PWChar;
 
 // function declaration
-const int NUM_FUNCTIONS = 162;
+const int NUM_FUNCTIONS = 163;
 
 static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     // META METHODS
@@ -34,29 +34,31 @@ static const char* FUNCTION_NAMES [NUM_FUNCTIONS] = {
     "ExtractContainer", "ExtractFile", "GetContainerFiles", "GetFileContainer",
     "GetLoadedContainers", "LoadContainer", "BuildArchive", "GetTextureData",
     // FILE HANDLING METHODS
-    "AddFile", "FileByIndex", "FileByLoadOrder", "FileByName", "FileByAuthor", "NukeFile",
-    "RenameFile", "SaveFile", "GetRecordCount", "GetOverrideRecordCount", "MD5Hash", "CRCHash",
-    "SortEditorIDs", "SortNames", "GetFileLoadOrder",
+    "AddFile", "FileByIndex", "FileByLoadOrder", "FileByName", "FileByAuthor",
+    "NukeFile", "RenameFile", "SaveFile", "GetRecordCount", "GetOverrideRecordCount",
+    "MD5Hash", "CRCHash", "SortEditorIDs", "SortNames", "GetFileLoadOrder",
     // MASTER HANDLING METHODS
-    "CleanMasters", "SortMasters", "AddMaster", "AddMasters", "AddRequiredMasters", "GetMasters",
-    "GetRequiredBy", "GetMasterNames",
+    "CleanMasters", "SortMasters", "AddMaster", "AddMasters", "AddRequiredMasters",
+    "GetMasters", "GetRequiredBy", "GetMasterNames",
     // ELEMENT HANDLING METHODS
     "HasElement", "GetElement", "AddElement", "AddElementValue", "RemoveElement",
     "RemoveElementOrParent", "SetElement", "GetElements", "GetDefNames", "GetAddList",
-    "GetContainer", "GetElementFile", "GetElementGroup", "GetElementRecord", "GetLinksTo",
-    "SetLinksTo", "ElementCount", "ElementEquals", "ElementMatches", "HasArrayItem",
-    "GetArrayItem", "AddArrayItem", "RemoveArrayItem", "MoveArrayItem", "CopyElement",
-    "FindNextElement", "FindPreviousElement", "GetSignatureAllowed", "GetAllowedSignatures",
-    "GetIsModified", "GetIsEditable", "SetIsEditable", "GetIsRemoveable", "GetCanAdd", "SortKey",
-    "ElementType", "DefType", "SmashType", "ValueType", "IsSorted", "IsFixed",
+    "GetContainer", "GetElementFile", "GetElementGroup", "GetElementRecord",
+    "GetLinksTo", "SetLinksTo", "ElementCount", "ElementEquals", "ElementMatches",
+    "HasArrayItem", "GetArrayItem", "AddArrayItem", "RemoveArrayItem", "MoveArrayItem",
+    "CopyElement", "FindNextElement", "FindPreviousElement", "GetSignatureAllowed",
+    "GetAllowedSignatures", "GetIsModified", "GetIsEditable", "SetIsEditable",
+    "GetIsRemoveable", "GetCanAdd", "SortKey", "ElementType", "DefType", "SmashType",
+    "ValueType", "IsSorted", "IsFixed",
     // PLUGIN ERROR METHODS
     "CheckForErrors", "GetErrorThreadDone", "GetErrors", "RemoveIdenticalRecords",
     // SERIALIZATION METHODS
     "ElementToJson", "ElementFromJson", "DefToJson",
     // ELEMENT VALUE METHODS
-    "Name", "LongName", "DisplayName", "Path", "PathName", "Signature", "GetValue", "SetValue",
-    "GetIntValue", "SetIntValue", "GetUIntValue", "SetUIntValue", "GetFloatValue", "SetFloatValue",
-    "GetFlag", "SetFlag", "GetEnabledFlags", "SetEnabledFlags", "GetAllFlags", "GetEnumOptions",
+    "Name", "LongName", "DisplayName", "Path", "PathName", "Signature", "GetValue",
+    "GetRefValue", "SetValue", "GetIntValue", "SetIntValue", "GetUIntValue",
+    "SetUIntValue", "GetFloatValue", "SetFloatValue", "GetFlag", "SetFlag",
+    "GetEnabledFlags", "SetEnabledFlags", "GetAllFlags", "GetEnumOptions",
     "SignatureFromName", "NameFromSignature", "GetSignatureNameMap",
     // RECORD HANDLING METHODS
     "GetFormID", "SetFormID", "GetRecord", "GetRecords", "GetREFRs", "GetOverrides",
@@ -200,6 +202,7 @@ struct functions_struct {
     WordBool  (__cdecl* PathName)(Cardinal, WordBool, PInteger);
     WordBool  (__cdecl* Signature)(Cardinal, PInteger);
     WordBool  (__cdecl* GetValue)(Cardinal, PWChar, PInteger);
+    WordBool  (__cdecl* GetRefValue)(Cardinal, PWChar, PInteger);
     WordBool  (__cdecl* SetValue)(Cardinal, PWChar, PWChar);
     WordBool  (__cdecl* GetIntValue)(Cardinal, PWChar, PInteger);
     WordBool  (__cdecl* SetIntValue)(Cardinal, PWChar, Integer);

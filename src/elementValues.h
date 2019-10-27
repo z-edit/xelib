@@ -11,6 +11,7 @@ NAN_METHOD(Path);
 NAN_METHOD(PathName);
 NAN_METHOD(Signature);
 NAN_METHOD(GetValue);
+NAN_METHOD(GetRefValue);
 NAN_METHOD(SetValue);
 NAN_METHOD(GetIntValue);
 NAN_METHOD(SetIntValue);
