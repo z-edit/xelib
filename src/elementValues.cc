@@ -30,15 +30,17 @@ NAN_METHOD(Path) {
     Cardinal element = info[0]->Uint32Value();
     WordBool _short = (WordBool) info[1]->BooleanValue();
     WordBool local = (WordBool) info[2]->BooleanValue();
-    PInteger len = (PInteger) node::Buffer::Data(info[3]->ToObject());
-    WordBool success = xelib.functions.Path(element, _short, local, len);
+    WordBool sort = (WordBool) info[3]->BooleanValue();
+    PInteger len = (PInteger) node::Buffer::Data(info[4]->ToObject());
+    WordBool success = xelib.functions.Path(element, _short, local, sort, len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(PathName) {
     Cardinal element = info[0]->Uint32Value();
-    PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());
-    WordBool success = xelib.functions.PathName(element, len);
+    WordBool sort = (WordBool) info[1]->BooleanValue();
+    PInteger len = (PInteger) node::Buffer::Data(info[2]->ToObject());
+    WordBool success = xelib.functions.PathName(element, sort, len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 

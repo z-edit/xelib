@@ -196,8 +196,8 @@ struct functions_struct {
     WordBool  (__cdecl* Name)(Cardinal, PInteger);
     WordBool  (__cdecl* LongName)(Cardinal, PInteger);
     WordBool  (__cdecl* DisplayName)(Cardinal, PInteger);
-    WordBool  (__cdecl* Path)(Cardinal, WordBool, WordBool, PInteger);
-    WordBool  (__cdecl* PathName)(Cardinal, PInteger);
+    WordBool  (__cdecl* Path)(Cardinal, WordBool, WordBool, WordBool, PInteger);
+    WordBool  (__cdecl* PathName)(Cardinal, WordBool, PInteger);
     WordBool  (__cdecl* Signature)(Cardinal, PInteger);
     WordBool  (__cdecl* GetValue)(Cardinal, PWChar, PInteger);
     WordBool  (__cdecl* SetValue)(Cardinal, PWChar, PWChar);
