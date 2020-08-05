@@ -1,25 +1,25 @@
 const xelib = {};
 
 const lib = require('bindings')('xelib');
-const helpers = require('./lib/helpers')(lib, xelib);
+const helpers = require('./src/js/helpers')(lib, xelib);
 
-require('./lib/meta')(lib, xelib, helpers);
-require('./lib/messages')(lib, xelib, helpers);
-require('./lib/setup')(lib, xelib, helpers);
-require('./lib/resources')(lib, xelib, helpers);
-require('./lib/files')(lib, xelib, helpers);
-require('./lib/masters')(lib, xelib, helpers);
-require('./lib/elements')(lib, xelib, helpers);
-require('./lib/errors')(lib, xelib, helpers);
-require('./lib/elementValues')(lib, xelib, helpers);
-require('./lib/serialization')(lib, xelib, helpers);
-require('./lib/records')(lib, xelib, helpers);
-require('./lib/groups')(lib, xelib, helpers);
-require('./lib/filter')(lib, xelib, helpers);
-require('./lib/fileValues')(lib, xelib, helpers);
-require('./lib/recordValues')(lib, xelib, helpers);
-require('./lib/common')(lib, xelib, helpers);
-require('./lib/utils')(lib, xelib, helpers);
+require('./src/js/meta')(lib, xelib, helpers);
+require('./src/js/messages')(lib, xelib, helpers);
+require('./src/js/setup')(lib, xelib, helpers);
+require('./src/js/resources')(lib, xelib, helpers);
+require('./src/js/files')(lib, xelib, helpers);
+require('./src/js/masters')(lib, xelib, helpers);
+require('./src/js/elements')(lib, xelib, helpers);
+require('./src/js/errors')(lib, xelib, helpers);
+require('./src/js/elementValues')(lib, xelib, helpers);
+require('./src/js/serialization')(lib, xelib, helpers);
+require('./src/js/records')(lib, xelib, helpers);
+require('./src/js/groups')(lib, xelib, helpers);
+require('./src/js/filter')(lib, xelib, helpers);
+require('./src/js/fileValues')(lib, xelib, helpers);
+require('./src/js/recordValues')(lib, xelib, helpers);
+require('./src/js/common')(lib, xelib, helpers);
+require('./src/js/utils')(lib, xelib, helpers);
 
 module.exports = {
     helpers: helpers,

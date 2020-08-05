@@ -1,11 +1,12 @@
 #include <nan.h>
 #include "filter.h"
 #include "lib.h"
+#include "helpers.h"
 
 using namespace Nan;
 
 NAN_METHOD(FilterRecord) {
-    Cardinal handle = info[0]->Uint32Value();
+    Cardinal handle = GetCardinal(info[0]);
     WordBool success = xelib.functions.FilterRecord(handle);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }

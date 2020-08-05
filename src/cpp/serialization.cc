@@ -1,27 +1,28 @@
 #include <nan.h>
 #include "serialization.h"
 #include "lib.h"
+#include "helpers.h"
 
 using namespace Nan;
 
 NAN_METHOD(ElementToJson) {
-    Cardinal handle = info[0]->Uint32Value();
-    PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());
+    Cardinal handle = GetCardinal(info[0]);
+    PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.ElementToJson(handle, len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(ElementFromJson) {
-    Cardinal handle = info[0]->Uint32Value();
-    PWChar path = (PWChar) node::Buffer::Data(info[1]->ToObject());
-    PWChar json = (PWChar) node::Buffer::Data(info[2]->ToObject());
+    Cardinal handle = GetCardinal(info[0]);
+    PWChar path = (PWChar) BufferToPointer(info[1]);
+    PWChar json = (PWChar) BufferToPointer(info[2]);
     WordBool success = xelib.functions.ElementFromJson(handle, path, json);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(DefToJson) {
-    Cardinal handle = info[0]->Uint32Value();
-    PInteger len = (PInteger) node::Buffer::Data(info[1]->ToObject());
+    Cardinal handle = GetCardinal(info[0]);
+    PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.DefToJson(handle, len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
