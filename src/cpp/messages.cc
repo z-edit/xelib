@@ -6,11 +6,13 @@
 using namespace Nan;
 
 NAN_METHOD(GetMessagesLength) {
+    if (!TestArguments(info, { atBuffer })) return;
     PInteger len = (PInteger) BufferToPointer(info[0]);
     xelib.functions.GetMessagesLength(len);
 }
 
 NAN_METHOD(GetMessages) {
+    if (!TestArguments(info, { atBuffer, atNumber })) return;
     PWChar result = (PWChar) BufferToPointer(info[0]);
     Integer len = GetInt(info[1]);
     WordBool success = true;
@@ -23,11 +25,13 @@ NAN_METHOD(ClearMessages) {
 }
 
 NAN_METHOD(GetExceptionMessageLength) {
+    if (!TestArguments(info, { atBuffer })) return;
     PInteger len = (PInteger) BufferToPointer(info[0]);
     xelib.functions.GetExceptionMessageLength(len);
 }
 
 NAN_METHOD(GetExceptionMessage) {
+    if (!TestArguments(info, { atBuffer, atNumber })) return;
     PWChar result = (PWChar) BufferToPointer(info[0]);
     Integer len = GetInt(info[1]);
     WordBool success = true;
@@ -36,11 +40,13 @@ NAN_METHOD(GetExceptionMessage) {
 }
 
 NAN_METHOD(GetExceptionStackLength) {
+    if (!TestArguments(info, { atBuffer })) return;
     PInteger len = (PInteger) BufferToPointer(info[0]);
     xelib.functions.GetExceptionStackLength(len);
 }
 
 NAN_METHOD(GetExceptionStack) {
+    if (!TestArguments(info, { atBuffer, atNumber })) return;
     PWChar result = (PWChar) BufferToPointer(info[0]);
     Integer len = GetInt(info[1]);
     WordBool success = true;

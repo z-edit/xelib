@@ -6,6 +6,7 @@
 using namespace Nan;
 
 NAN_METHOD(ExtractContainer) {
+    if (!TestArguments(info, { atBuffer, atBuffer, atBool })) return;
     PWChar name = (PWChar) BufferToPointer(info[0]);
     PWChar destination = (PWChar) BufferToPointer(info[1]);
     WordBool replace = (WordBool) GetBool(info[2]);
@@ -14,6 +15,7 @@ NAN_METHOD(ExtractContainer) {
 }
 
 NAN_METHOD(ExtractFile) {
+    if (!TestArguments(info, { atBuffer, atBuffer, atBuffer })) return;
     PWChar name = (PWChar) BufferToPointer(info[0]);
     PWChar source = (PWChar) BufferToPointer(info[1]);
     PWChar destination = (PWChar) BufferToPointer(info[2]);
@@ -22,6 +24,7 @@ NAN_METHOD(ExtractFile) {
 }
 
 NAN_METHOD(GetContainerFiles) {
+    if (!TestArguments(info, { atBuffer, atBuffer, atBuffer })) return;
     PWChar name = (PWChar) BufferToPointer(info[0]);
     PWChar folder = (PWChar) BufferToPointer(info[1]);
     PInteger len = (PInteger) BufferToPointer(info[2]);
@@ -30,6 +33,7 @@ NAN_METHOD(GetContainerFiles) {
 }
 
 NAN_METHOD(GetFileContainer) {
+    if (!TestArguments(info, { atBuffer, atBuffer })) return;
     PWChar filePath = (PWChar) BufferToPointer(info[0]);
     PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.GetFileContainer(filePath, len);
@@ -37,24 +41,30 @@ NAN_METHOD(GetFileContainer) {
 }
 
 NAN_METHOD(GetLoadedContainers) {
+    if (!TestArguments(info, { atBuffer })) return;
     PInteger len = (PInteger) BufferToPointer(info[0]);
     WordBool success = xelib.functions.GetLoadedContainers(len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(LoadContainer) {
+    if (!TestArguments(info, { atBuffer })) return;
     PWChar filePath = (PWChar) BufferToPointer(info[0]);
     WordBool success = xelib.functions.LoadContainer(filePath);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(BuildArchive) {
+    if (!TestArguments(info, { 
+            atBuffer, atBuffer, atBuffer, atNumber, 
+            atBool, atBool, atBuffer, atBuffer 
+        })) return;
     PWChar name = (PWChar) BufferToPointer(info[0]);
     PWChar folder = (PWChar) BufferToPointer(info[1]);
     PWChar filePaths = (PWChar) BufferToPointer(info[2]);
     Integer archiveType = GetInt(info[3]);
-    WordBool bCompress = (WordBool) GetCardinal(info[4]);
-    WordBool bShare = (WordBool) GetCardinal(info[5]);
+    WordBool bCompress = (WordBool) GetBool(info[4]);
+    WordBool bShare = (WordBool) GetBool(info[5]);
     PWChar ff = (PWChar) BufferToPointer(info[6]);
     PWChar af = (PWChar) BufferToPointer(info[7]);
     WordBool success = xelib.functions.BuildArchive(name, folder, filePaths, archiveType, bCompress, bShare, ff, af);
@@ -62,6 +72,7 @@ NAN_METHOD(BuildArchive) {
 }
 
 NAN_METHOD(GetTextureData) {
+    if (!TestArguments(info, { atBuffer, atBuffer, atBuffer })) return;
     PWChar name = (PWChar) BufferToPointer(info[0]);
     PInteger width = (PInteger) BufferToPointer(info[1]);
     PInteger height = (PInteger) BufferToPointer(info[2]);

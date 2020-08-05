@@ -7,7 +7,7 @@
 #include "lib.h"
 #include <list>
 
-enum ArgType { atNumber, atBuffer, atBool };
+enum ArgType { atNumber, atBuffer, atBool, atString };
 
 inline void ThrowArgError(int n, const char* argType) {
     std::stringstream ss;
@@ -25,23 +25,21 @@ inline bool TestArguments(Nan::NAN_METHOD_ARGS_TYPE info, std::initializer_list<
     for (auto arg = args.begin(); arg < args.end(); arg++, i++) {
         switch (*arg) {
         case atNumber:
-            if (!info[i]->IsNumber()) {
-                ThrowArgError(i, "number");
-                return false;
-            }
-            break;
+            if (info[i]->IsNumber()) break;
+            ThrowArgError(i, "number");
+            return false;
         case atBuffer:
-            if (!info[i]->IsObject()) {
-                ThrowArgError(i, "object");
-                return false;
-            }
-            break;
+            if (info[i]->IsObject()) break;
+            ThrowArgError(i, "object");
+            return false;
         case atBool:
-            if (!info[i]->IsBoolean()) {
-                ThrowArgError(i, "boolean");
-                return false;
-            }
-            break;
+            if (info[i]->IsBoolean()) break;
+            ThrowArgError(i, "boolean");
+            return false;
+        case atString:
+            if (info[i]->IsString()) break;
+            ThrowArgError(i, "string");
+            return false;
         }
     }
 

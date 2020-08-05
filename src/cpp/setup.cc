@@ -6,6 +6,7 @@
 using namespace Nan;
 
 NAN_METHOD(GetGamePath) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     int gameMode = GetInt(info[0]);
     PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.GetGamePath(gameMode, len);
@@ -13,12 +14,14 @@ NAN_METHOD(GetGamePath) {
 }
 
 NAN_METHOD(SetGamePath) {
+    if (!TestArguments(info, { atBuffer })) return;
     PWChar gamePath = (PWChar) BufferToPointer(info[0]);
     WordBool success = xelib.functions.SetGamePath(gamePath);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(GetGameLanguage) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     int gameMode = GetInt(info[0]);
     PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.GetGameLanguage(gameMode, len);
@@ -26,12 +29,14 @@ NAN_METHOD(GetGameLanguage) {
 }
 
 NAN_METHOD(SetLanguage) {
+    if (!TestArguments(info, { atBuffer })) return;
     PWChar language = (PWChar) BufferToPointer(info[0]);
     WordBool success = xelib.functions.SetLanguage(language);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(SetBackupPath) {
+    if (!TestArguments(info, { atBuffer })) return;
     PWChar backupPath = (PWChar) BufferToPointer(info[0]);
     WordBool success = xelib.functions.SetBackupPath(backupPath);
     info.GetReturnValue().Set(Nan::New((bool) success));
@@ -44,18 +49,21 @@ NAN_METHOD(SetGameMode) {
 }
 
 NAN_METHOD(GetLoadOrder) {
+    if (!TestArguments(info, { atBuffer })) return;
     PInteger len = (PInteger) BufferToPointer(info[0]);
     WordBool success = xelib.functions.GetLoadOrder(len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(GetActivePlugins) {
+    if (!TestArguments(info, { atBuffer })) return;
     PInteger len = (PInteger) BufferToPointer(info[0]);
     WordBool success = xelib.functions.GetActivePlugins(len);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(LoadPlugins) {
+    if (!TestArguments(info, { atBuffer, atBool, atBool })) return;
     PWChar plugins = (PWChar) BufferToPointer(info[0]);
     WordBool smartLoad(GetBool(info[1]));
     WordBool useDummies(GetBool(info[2]));
@@ -70,6 +78,7 @@ NAN_METHOD(LoadPlugin) {
 }
 
 NAN_METHOD(LoadPluginHeader) {
+    if (!TestArguments(info, { atBuffer, atBuffer })) return;
     PWChar filename = (PWChar) BufferToPointer(info[0]);
     PCardinal handle = (PCardinal) BufferToPointer(info[1]);
     WordBool success = xelib.functions.LoadPluginHeader(filename, handle);
@@ -77,6 +86,7 @@ NAN_METHOD(LoadPluginHeader) {
 }
 
 NAN_METHOD(BuildReferences) {
+    if (!TestArguments(info, { atNumber, atBool })) return;
     Cardinal handle = GetCardinal(info[0]);
     WordBool sync = GetBool(info[1]);
     WordBool success = xelib.functions.BuildReferences(handle, sync);
@@ -84,12 +94,14 @@ NAN_METHOD(BuildReferences) {
 }
 
 NAN_METHOD(GetLoaderStatus) {
+    if (!TestArguments(info, { atBuffer })) return;
     PByte state = (PByte) BufferToPointer(info[0]);
     WordBool success = xelib.functions.GetLoaderStatus(state);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(UnloadPlugin) {
+    if (!TestArguments(info, { atNumber })) return;
     Cardinal handle = GetCardinal(info[0]);
     WordBool success = xelib.functions.UnloadPlugin(handle);
     info.GetReturnValue().Set(Nan::New((bool) success));

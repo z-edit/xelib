@@ -7,6 +7,7 @@
 using namespace Nan;
 
 NAN_METHOD(Name) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.Name(element, len);
@@ -14,6 +15,7 @@ NAN_METHOD(Name) {
 }
 
 NAN_METHOD(LongName) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.LongName(element, len);
@@ -21,6 +23,7 @@ NAN_METHOD(LongName) {
 }
 
 NAN_METHOD(DisplayName) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.DisplayName(element, len);
@@ -28,6 +31,7 @@ NAN_METHOD(DisplayName) {
 }
 
 NAN_METHOD(Path) {
+    if (!TestArguments(info, { atNumber, atBool, atBool, atBool, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     WordBool _short = (WordBool) GetBool(info[1]);
     WordBool local = (WordBool) GetBool(info[2]);
@@ -38,6 +42,7 @@ NAN_METHOD(Path) {
 }
 
 NAN_METHOD(PathName) {
+    if (!TestArguments(info, { atNumber, atBool, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     WordBool sort = (WordBool) GetBool(info[1]);
     PInteger len = (PInteger) BufferToPointer(info[2]);
@@ -46,6 +51,7 @@ NAN_METHOD(PathName) {
 }
 
 NAN_METHOD(Signature) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.Signature(element, len);
@@ -53,6 +59,7 @@ NAN_METHOD(Signature) {
 }
 
 NAN_METHOD(GetValue) {
+    if (!TestArguments(info, { atNumber, atBuffer, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     PInteger len = (PInteger) BufferToPointer(info[2]);
@@ -61,6 +68,7 @@ NAN_METHOD(GetValue) {
 }
 
 NAN_METHOD(GetRefValue) {
+    if (!TestArguments(info, { atNumber, atBuffer, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     PInteger len = (PInteger) BufferToPointer(info[2]);
@@ -69,6 +77,7 @@ NAN_METHOD(GetRefValue) {
 }
 
 NAN_METHOD(SetValue) {
+    if (!TestArguments(info, { atNumber, atBuffer, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     PWChar value = (PWChar) BufferToPointer(info[2]);
@@ -77,6 +86,7 @@ NAN_METHOD(SetValue) {
 }
 
 NAN_METHOD(GetIntValue) {
+    if (!TestArguments(info, { atNumber, atBuffer, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     PInteger _res = (PInteger) BufferToPointer(info[2]);
@@ -85,6 +95,7 @@ NAN_METHOD(GetIntValue) {
 }
 
 NAN_METHOD(SetIntValue) {
+    if (!TestArguments(info, { atNumber, atBuffer, atNumber })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     Integer value = GetInt(info[2]);
@@ -93,6 +104,7 @@ NAN_METHOD(SetIntValue) {
 }
 
 NAN_METHOD(GetUIntValue) {
+    if (!TestArguments(info, { atNumber, atBuffer, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     PCardinal _res = (PCardinal) BufferToPointer(info[2]);
@@ -101,6 +113,7 @@ NAN_METHOD(GetUIntValue) {
 }
 
 NAN_METHOD(SetUIntValue) {
+    if (!TestArguments(info, { atNumber, atBuffer, atNumber })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     Cardinal value = GetCardinal(info[2]);
@@ -109,6 +122,7 @@ NAN_METHOD(SetUIntValue) {
 }
 
 NAN_METHOD(GetFloatValue) {
+    if (!TestArguments(info, { atNumber, atBuffer, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     PDouble _res = (PDouble) BufferToPointer(info[2]);
@@ -117,6 +131,7 @@ NAN_METHOD(GetFloatValue) {
 }
 
 NAN_METHOD(SetFloatValue) {
+    if (!TestArguments(info, { atNumber, atBuffer, atNumber })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     double value = GetDouble(info[2]);
@@ -125,6 +140,7 @@ NAN_METHOD(SetFloatValue) {
 }
 
 NAN_METHOD(GetFlag) {
+    if (!TestArguments(info, { atNumber, atBuffer, atBuffer, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     PWChar flagName = (PWChar) BufferToPointer(info[2]);
@@ -134,6 +150,7 @@ NAN_METHOD(GetFlag) {
 }
 
 NAN_METHOD(SetFlag) {
+    if (!TestArguments(info, { atNumber, atBuffer, atBuffer, atBool })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     PWChar flagName = (PWChar) BufferToPointer(info[2]);
@@ -143,6 +160,7 @@ NAN_METHOD(SetFlag) {
 }
 
 NAN_METHOD(GetEnabledFlags) {
+    if (!TestArguments(info, { atNumber, atBuffer, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     PInteger len = (PInteger) BufferToPointer(info[2]);
@@ -151,6 +169,7 @@ NAN_METHOD(GetEnabledFlags) {
 }
 
 NAN_METHOD(SetEnabledFlags) {
+    if (!TestArguments(info, { atNumber, atBuffer, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     PWChar flags = (PWChar) BufferToPointer(info[2]);
@@ -159,6 +178,7 @@ NAN_METHOD(SetEnabledFlags) {
 }
 
 NAN_METHOD(GetAllFlags) {
+    if (!TestArguments(info, { atNumber, atBuffer, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     PInteger len = (PInteger) BufferToPointer(info[2]);
@@ -167,6 +187,7 @@ NAN_METHOD(GetAllFlags) {
 }
 
 NAN_METHOD(GetEnumOptions) {
+    if (!TestArguments(info, { atNumber, atBuffer, atBuffer })) return;
     Cardinal element = GetCardinal(info[0]);
     PWChar path = (PWChar) BufferToPointer(info[1]);
     PInteger len = (PInteger) BufferToPointer(info[2]);
@@ -175,6 +196,7 @@ NAN_METHOD(GetEnumOptions) {
 }
 
 NAN_METHOD(SignatureFromName) {
+    if (!TestArguments(info, { atBuffer, atBuffer })) return;
     PWChar name = (PWChar) BufferToPointer(info[0]);
     PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.SignatureFromName(name, len);
@@ -182,6 +204,7 @@ NAN_METHOD(SignatureFromName) {
 }
 
 NAN_METHOD(NameFromSignature) {
+    if (!TestArguments(info, { atBuffer, atBuffer })) return;
     PWChar signature = (PWChar) BufferToPointer(info[0]);
     PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.NameFromSignature(signature, len);
@@ -189,6 +212,7 @@ NAN_METHOD(NameFromSignature) {
 }
 
 NAN_METHOD(GetSignatureNameMap) {
+    if (!TestArguments(info, { atBuffer })) return;
     PInteger len = (PInteger) BufferToPointer(info[0]);
     WordBool success = xelib.functions.GetSignatureNameMap(len);
     info.GetReturnValue().Set(Nan::New((bool) success));

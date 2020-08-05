@@ -6,6 +6,7 @@
 using namespace Nan;
 
 NAN_METHOD(AddFile) {
+    if (!TestArguments(info, { atBuffer, atBool, atBuffer })) return;
     PWChar filename = (PWChar) BufferToPointer(info[0]);
     WordBool ignoreExists(GetBool(info[1]));
     PCardinal handle = (PCardinal) BufferToPointer(info[2]);
@@ -14,6 +15,7 @@ NAN_METHOD(AddFile) {
 }
 
 NAN_METHOD(FileByIndex) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Integer index = GetInt(info[0]);
     PCardinal handle = (PCardinal) BufferToPointer(info[1]);
     WordBool success = xelib.functions.FileByIndex(index, handle);
@@ -21,6 +23,7 @@ NAN_METHOD(FileByIndex) {
 }
 
 NAN_METHOD(FileByLoadOrder) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Integer loadOrder = GetInt(info[0]);
     PCardinal handle = (PCardinal) BufferToPointer(info[1]);
     WordBool success = xelib.functions.FileByLoadOrder(loadOrder, handle);
@@ -28,6 +31,7 @@ NAN_METHOD(FileByLoadOrder) {
 }
 
 NAN_METHOD(FileByName) {
+    if (!TestArguments(info, { atBuffer, atBuffer })) return;
     PWChar filename = (PWChar) BufferToPointer(info[0]);
     PCardinal handle = (PCardinal) BufferToPointer(info[1]);
     WordBool success = xelib.functions.FileByName(filename, handle);
@@ -35,6 +39,7 @@ NAN_METHOD(FileByName) {
 }
 
 NAN_METHOD(FileByAuthor) {
+    if (!TestArguments(info, { atBuffer, atBuffer })) return;
     PWChar author = (PWChar) BufferToPointer(info[0]);
     PCardinal handle = (PCardinal) BufferToPointer(info[1]);
     WordBool success = xelib.functions.FileByAuthor(author, handle);
@@ -42,12 +47,14 @@ NAN_METHOD(FileByAuthor) {
 }
 
 NAN_METHOD(NukeFile) {
+    if (!TestArguments(info, { atNumber })) return;
     Cardinal handle = GetCardinal(info[0]);
     WordBool success = xelib.functions.NukeFile(handle);
     info.GetReturnValue().Set(Nan::New((bool) success));
 }
 
 NAN_METHOD(RenameFile) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal handle = GetCardinal(info[0]);
     PWChar filename = (PWChar) BufferToPointer(info[1]);
     WordBool success = xelib.functions.RenameFile(handle, filename);
@@ -55,6 +62,7 @@ NAN_METHOD(RenameFile) {
 }
 
 NAN_METHOD(SaveFile) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal handle = GetCardinal(info[0]);
     PWChar filePath = (PWChar) BufferToPointer(info[1]);
     WordBool success = xelib.functions.SaveFile(handle, filePath);
@@ -62,6 +70,7 @@ NAN_METHOD(SaveFile) {
 }
 
 NAN_METHOD(GetRecordCount) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal handle = GetCardinal(info[0]);
     PInteger count = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.GetRecordCount(handle, count);
@@ -69,6 +78,7 @@ NAN_METHOD(GetRecordCount) {
 }
 
 NAN_METHOD(GetOverrideRecordCount) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal handle = GetCardinal(info[0]);
     PInteger count = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.GetOverrideRecordCount(handle, count);
@@ -76,6 +86,7 @@ NAN_METHOD(GetOverrideRecordCount) {
 }
 
 NAN_METHOD(MD5Hash) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal handle = GetCardinal(info[0]);
     PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.MD5Hash(handle, len);
@@ -83,6 +94,7 @@ NAN_METHOD(MD5Hash) {
 }
 
 NAN_METHOD(CRCHash) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal handle = GetCardinal(info[0]);
     PInteger len = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.CRCHash(handle, len);
@@ -90,6 +102,7 @@ NAN_METHOD(CRCHash) {
 }
 
 NAN_METHOD(SortEditorIDs) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal handle = GetCardinal(info[0]);
     PWChar signature = (PWChar) BufferToPointer(info[1]);
     WordBool success = xelib.functions.SortEditorIDs(handle, signature);
@@ -97,6 +110,7 @@ NAN_METHOD(SortEditorIDs) {
 }
 
 NAN_METHOD(SortNames) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal handle = GetCardinal(info[0]);
     PWChar signature = (PWChar) BufferToPointer(info[1]);
     WordBool success = xelib.functions.SortNames(handle, signature);
@@ -104,6 +118,7 @@ NAN_METHOD(SortNames) {
 }
 
 NAN_METHOD(GetFileLoadOrder) {
+    if (!TestArguments(info, { atNumber, atBuffer })) return;
     Cardinal handle = GetCardinal(info[0]);
     PInteger loadOrder = (PInteger) BufferToPointer(info[1]);
     WordBool success = xelib.functions.GetFileLoadOrder(handle, loadOrder);

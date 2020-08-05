@@ -6,6 +6,7 @@
 using namespace Nan;
 
 NAN_METHOD(FilterRecord) {
+    if (!TestArguments(info, { atNumber })) return;
     Cardinal handle = GetCardinal(info[0]);
     WordBool success = xelib.functions.FilterRecord(handle);
     info.GetReturnValue().Set(Nan::New((bool) success));
