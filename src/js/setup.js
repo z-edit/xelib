@@ -3,7 +3,7 @@ module.exports = function(lib, xelib, helpers) {
 
     // ENUMERATIONS
     const loaderStates = ['lsInactive', 'lsActive', 'lsDone', 'lsError'];
-    const gameModes = ['gmFNV', 'gmFO3', 'gmTES4', 'gmTES5', 'gmSSE', 'gmFO4'];
+    const gameModes = ['gmFNV', 'gmFO3', 'gmTES4', 'gmTES5', 'gmSSE', 'gmFO4', 'gmTES5VR', 'gmFO4VR'];
 
     applyEnums(xelib, loaderStates, 'loaderStates');
     applyEnums(xelib, gameModes, 'gameModes');
@@ -39,6 +39,16 @@ module.exports = function(lib, xelib, helpers) {
         shortName: 'Fallout4',
         mode: 5,
         exeName: 'Fallout4.exe'
+    }, {
+        name: 'Skyrim VR',
+        shortName: 'Skyrim',
+        mode: 6,
+        exeName: 'SkyrimVR.exe'
+    }, {
+        name: 'Fallout 4 VR',
+        shortName: 'Fallout4',
+        mode: 7,
+        exeName: 'Fallout4VR.exe'
     }];
 
     // LOADING AND SET UP METHODS
